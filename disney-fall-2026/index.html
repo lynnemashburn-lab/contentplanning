@@ -1,0 +1,2435 @@
+<title>Happily Ever Filmed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Happily Ever Filmed: content call sheets for the Mashburn trip.
+   Brand system borrowed from the Happily Ever Planned itinerary:
+   Fraunces + Source Sans 3, navy neutrals, one colour per park. */
+
+:root {
+  color-scheme: light;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --bg: #EEF2F8;
+  --surface: #FFFFFF;
+  --surface-2: #F4F7FB;
+  --line: #DAE2EE;
+  --ink: #13213A;
+  --ink-2: #465A76;
+  --ink-3: #62748A;
+  --accent: #1D6CC0;
+  --on-accent: #FFFFFF;
+  --rec: #D23F44;
+  --on-rec: #FFFFFF;
+  --good: #2C7A39;
+  --warn: #975E0A;
+  --on-park: #FFFFFF;
+  --fill: rgba(151, 94, 10, .16);
+
+  --mk: #1E6FBF;
+  --ep: #0B7468;
+  --hs: #975E0A;
+  --ak: #2C7A39;
+  --party: #6F3CC4;
+  --travel: #566C88;
+  --prep: #2A6E9B;
+  --after: #C2413F;
+
+  --scrim: rgba(12, 20, 34, .44);
+  --shadow: 0 10px 30px rgba(19, 33, 58, .12);
+  --shadow-sm: 0 1px 3px rgba(19, 33, 58, .08);
+  --tab-h: 68px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0D1421;
+    --surface: #16202F;
+    --surface-2: #1C2738;
+    --line: #283548;
+    --ink: #E9EFF7;
+    --ink-2: #A9BACE;
+    --ink-3: #7F91A9;
+    --accent: #58A6EE;
+    --on-accent: #0D1421;
+    --rec: #FF6F70;
+    --on-rec: #0D1421;
+    --good: #62B86E;
+    --warn: #F2A63F;
+    --on-park: #0D1421;
+    --fill: rgba(242, 166, 63, .22);
+    --mk: #4F9FE8;
+    --ep: #35BCAC;
+    --hs: #F2A63F;
+    --ak: #62B86E;
+    --party: #A77BEA;
+    --travel: #8195AE;
+    --prep: #7FB3D9;
+    --after: #FF7A6E;
+    --scrim: rgba(0, 0, 0, .56);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .42);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, .3);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0D1421;
+  --surface: #16202F;
+  --surface-2: #1C2738;
+  --line: #283548;
+  --ink: #E9EFF7;
+  --ink-2: #A9BACE;
+  --ink-3: #7F91A9;
+  --accent: #58A6EE;
+  --on-accent: #0D1421;
+  --rec: #FF6F70;
+  --on-rec: #0D1421;
+  --good: #62B86E;
+  --warn: #F2A63F;
+  --on-park: #0D1421;
+  --fill: rgba(242, 166, 63, .22);
+  --mk: #4F9FE8;
+  --ep: #35BCAC;
+  --hs: #F2A63F;
+  --ak: #62B86E;
+  --party: #A77BEA;
+  --travel: #8195AE;
+  --prep: #7FB3D9;
+  --after: #FF7A6E;
+  --scrim: rgba(0, 0, 0, .56);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .42);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+[data-park="mk"]     { --park: var(--mk);     --sky1: #0F3468; --sky2: #4E9FE0; }
+[data-park="ep"]     { --park: var(--ep);     --sky1: #08333C; --sky2: #2FA99B; }
+[data-park="hs"]     { --park: var(--hs);     --sky1: #40240F; --sky2: #D98A3A; }
+[data-park="ak"]     { --park: var(--ak);     --sky1: #12301A; --sky2: #5FAE6B; }
+[data-park="party"]  { --park: var(--party);  --sky1: #1F0E33; --sky2: #7B4BC4; }
+[data-park="travel"] { --park: var(--travel); --sky1: #16283E; --sky2: #6E8AA8; }
+[data-park="prep"]   { --park: var(--prep);   --sky1: #12384E; --sky2: #4A98BC; }
+[data-park="after"]  { --park: var(--after);  --sky1: #3A1320; --sky2: #CF5659; }
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+html.lock body { overflow: hidden; }
+
+body {
+  --park: var(--accent);
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+button:disabled { opacity: .45; cursor: default; }
+a { color: var(--accent); }
+svg { display: block; flex: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
+
+/* ---------- shell ---------- */
+.app {
+  max-width: 640px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  padding-block: 12px calc(var(--tab-h) + 28px + env(safe-area-inset-bottom, 0px));
+}
+
+.brandbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 4px 10px; }
+.brand { min-width: 0; }
+.brand-name { font-family: var(--display); font-size: 21px; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+.brand-name em { font-style: italic; }
+.brand-b { color: var(--rec); }
+.brand-sub { margin-top: 3px; font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+
+.sync {
+  flex: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  height: 32px; padding: 0 11px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+  font-size: 12.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
+}
+.sync-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-3); }
+.sync[data-state="synced"] .sync-dot { background: var(--good); }
+.sync[data-state="saving"] .sync-dot { background: var(--accent); animation: blink 1.1s ease-in-out infinite; }
+.sync[data-state="offline"] .sync-dot { background: var(--warn); }
+@keyframes blink { 50% { opacity: .25; } }
+
+.icon-btn {
+  display: grid; place-items: center; flex: none;
+  width: 44px; height: 44px; border-radius: 13px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2);
+}
+.icon-btn svg { width: 20px; height: 20px; }
+
+/* ---------- the week rail (sticky, tubelight indicator) ---------- */
+.rail {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  display: flex; gap: 4px;
+  overflow-x: auto; scrollbar-width: none;
+  margin-inline: -16px;
+  padding: 6px 16px 7px;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.rail::-webkit-scrollbar { display: none; }
+body[data-tab="scripts"] .rail, body[data-tab="kit"] .rail { display: none; }
+
+.glow {
+  --gp: var(--accent);
+  position: absolute; top: 0; left: 0;
+  width: 26px; height: 3px; border-radius: 0 0 3px 3px;
+  background: var(--gp);
+  box-shadow: 0 0 10px 1px var(--gp), 0 2px 18px 2px color-mix(in srgb, var(--gp) 45%, transparent);
+  transition: transform .38s cubic-bezier(.22, 1, .36, 1), background .3s ease;
+  pointer-events: none;
+}
+
+.chip {
+  position: relative; flex: 0 0 auto; min-width: 58px;
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  padding: 7px 6px 6px; border-radius: 12px;
+  color: var(--ink-2);
+  transition: background .2s ease;
+}
+.chip .glyph { width: 20px; height: 20px; color: var(--park); }
+.chip-top { margin-top: 3px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.chip-bot { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink); }
+.chip-bar { width: 30px; height: 3px; margin-top: 4px; border-radius: 2px; overflow: hidden; background: color-mix(in srgb, var(--park) 22%, transparent); }
+.chip-bar i { display: block; height: 100%; width: 0; border-radius: 2px; background: var(--park); transition: width .45s cubic-bezier(.22, 1, .36, 1); }
+.chip[aria-current="true"] { background: color-mix(in srgb, var(--park) 14%, transparent); }
+.chip[aria-current="true"] .chip-top { color: var(--park); }
+.chip.is-today .chip-top::after {
+  content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 3px;
+  border-radius: 50%; background: var(--rec); vertical-align: 2px;
+}
+
+/* ---------- day view ---------- */
+.view { padding-top: 14px; }
+
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  color: #fff;
+  background: linear-gradient(158deg, var(--sky1), var(--sky2));
+  box-shadow: var(--shadow);
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(6, 12, 22, .1), rgba(6, 12, 22, .34));
+}
+.hero-mark { position: absolute; right: -22px; bottom: -30px; z-index: -1; width: 172px; height: 172px; color: rgba(255, 255, 255, .14); }
+.hero-mark svg { width: 100%; height: 100%; stroke-width: 1.1; }
+.hero-eye { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .82); }
+.hero-title { margin-top: 5px; font-family: var(--display); font-size: 29px; font-weight: 700; line-height: 1.08; text-wrap: balance; text-shadow: 0 1px 14px rgba(6, 12, 22, .35); }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.fact {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(255, 255, 255, .15); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .26);
+  font-size: 13px; font-weight: 600;
+}
+.fact b { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .78); }
+.hero-meter { margin-top: 16px; }
+.hero-num { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, .92); }
+.hero-num b { font-size: 20px; font-weight: 700; color: #fff; }
+.meter { display: block; height: 6px; margin-top: 6px; border-radius: 3px; overflow: hidden; background: rgba(255, 255, 255, .24); }
+.meter i { display: block; height: 100%; width: 0; border-radius: 3px; background: #fff; transition: width .55s cubic-bezier(.22, 1, .36, 1); }
+
+.focus { margin: 14px 2px 0; font-size: 15.5px; color: var(--ink-2); max-width: 62ch; }
+
+.hint {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-top: 14px; padding: 12px 8px 12px 14px;
+  border-radius: 14px; font-size: 14.5px; color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+.hint b { color: var(--ink); }
+.hint .icon-btn { width: 36px; height: 36px; border: 0; background: none; }
+
+.next {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  margin-top: 14px; padding: 12px 12px 12px 14px;
+  border-radius: 14px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-sm);
+}
+.next-k { flex: none; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--park); }
+.next-t { flex: 1; min-width: 0; font-weight: 600; line-height: 1.3; }
+.next svg { width: 18px; height: 18px; color: var(--ink-3); }
+.next.is-clear .next-k { color: var(--good); }
+
+.fbar { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 12px -16px 0; padding: 2px 16px; }
+.fbar::-webkit-scrollbar { display: none; }
+.fchip {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  height: 38px; padding: 0 13px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface);
+  font-size: 13.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
+}
+.fchip svg { width: 16px; height: 16px; }
+.fchip .n { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
+.fchip[aria-pressed="true"] { background: var(--park); border-color: var(--park); color: var(--on-park); }
+.fchip[aria-pressed="true"] .n { color: inherit; opacity: .85; }
+
+/* ---------- timeline ---------- */
+.timeline { position: relative; display: flex; flex-direction: column; gap: 20px; margin-top: 18px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px; border-radius: 1px; background: var(--line); }
+
+.mo { position: relative; padding-left: 26px; }
+.mo::before {
+  content: ""; position: absolute; left: 1px; top: 5px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--park);
+  transition: background .25s ease;
+}
+.mo.is-done::before { background: var(--park); }
+.mo.is-now::before { box-shadow: 0 0 0 5px color-mix(in srgb, var(--park) 26%, transparent); }
+.mo-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin-bottom: 8px; }
+.mo-time { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--park); }
+.mo-title { font-size: 17px; font-weight: 700; line-height: 1.25; }
+.now { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--rec); color: var(--on-rec); }
+.mo-count { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+.mo-allset { display: none; font-size: 14px; color: var(--ink-3); }
+.hide-done .mo.is-done .mo-allset { display: block; }
+.hide-done .mo.is-done .items { display: none; }
+
+/* Each row carries a bottom rule and overlaps the next by 1px; the card clips the
+   last one. Hidden rows (done or filtered) never leave a doubled or orphan rule. */
+.items { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.it { display: flex; align-items: stretch; margin-bottom: -1px; border-bottom: 1px solid var(--line); scroll-margin-top: 110px; }
+.hide-done .it.is-done:not(.just) { display: none; }
+
+.it-main, .it-open { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 12px; min-height: 58px; padding: 12px 14px; transition: background .15s ease; }
+.it-open { padding-left: 12px; }
+.it-main:active, .it-open:active, .it-tick:active { background: var(--surface-2); }
+.it-tick { flex: none; display: flex; align-items: flex-start; padding: 12px 0 12px 14px; }
+
+.tick {
+  flex: none; display: grid; place-items: center;
+  width: 26px; height: 26px; margin-top: 1px; border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--ink-3) 65%, transparent);
+  transition: background .2s ease, border-color .2s ease;
+}
+.tick svg { width: 15px; height: 15px; color: var(--on-park); stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .3s .05s ease-out; }
+.is-done > * > .tick, .is-done > .tick, .is-done .it-tick .tick, .is-done .it-main .tick, .take.is-done .tick { background: var(--park); border-color: var(--park); }
+.is-done .tick svg { stroke-dashoffset: 0; }
+.just .tick { animation: pop .34s cubic-bezier(.22, 1, .36, 1); }
+@keyframes pop { 0% { transform: scale(.78); } 60% { transform: scale(1.14); } 100% { transform: scale(1); } }
+
+.it-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.it-kind { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 5px; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.it-kind svg { width: 13px; height: 13px; }
+.it-text {
+  font-size: 16px; font-weight: 600; line-height: 1.35; color: var(--ink);
+  text-decoration-line: line-through; text-decoration-color: transparent; text-decoration-thickness: 1.5px;
+  transition: color .2s ease, text-decoration-color .25s ease;
+}
+.it-note { font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.is-done .it-text { color: var(--ink-3); text-decoration-color: currentColor; }
+.is-done .it-note { color: var(--ink-3); }
+.it-meta { flex: none; align-self: center; display: flex; align-items: center; gap: 2px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+.it-meta svg { width: 18px; height: 18px; }
+.it-go {
+  flex: none; align-self: center; margin-right: 12px;
+  height: 34px; padding: 0 12px; border-radius: 999px;
+  border: 1px solid var(--line); font-size: 13px; font-weight: 700; color: var(--park); white-space: nowrap;
+}
+.it.flash { animation: flash 1.4s ease-out; }
+@keyframes flash { 0%, 35% { background: color-mix(in srgb, var(--park) 18%, transparent); } 100% { background: transparent; } }
+
+.must { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--rec); }
+.must::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rec); }
+.slate { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .04em; padding: 2px 6px; border-radius: 6px; background: var(--ink); color: var(--bg); }
+
+.timeline[data-filter] .it { display: none; }
+.timeline[data-filter="script"] .it[data-type="script"],
+.timeline[data-filter="shot"] .it[data-type="shot"],
+.timeline[data-filter="photo"] .it[data-type="photo"],
+.timeline[data-filter="story"] .it[data-type="story"],
+.timeline[data-filter="screen"] .it[data-type="screen"],
+.timeline[data-filter="post"] .it[data-type="post"],
+.timeline[data-filter="task"] .it[data-type="task"] { display: flex; }
+.mo.is-filtered { display: none; }
+
+/* ---------- scripts view ---------- */
+.page-title { font-family: var(--display); font-size: 29px; font-weight: 700; line-height: 1.1; }
+.page-sub { margin-top: 4px; font-size: 15px; color: var(--ink-2); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+.stat { padding: 10px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.stat-l { font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
+.stat-v { margin-top: 2px; font-size: 24px; font-weight: 700; line-height: 1.1; }
+.stat-v small { font-size: 13px; font-weight: 600; color: var(--ink-3); }
+
+.sfbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 15; margin: 12px -16px 0; padding: 8px 16px; background: var(--bg); background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.sfbar .fbar { margin: 0 -16px; }
+.sfbar .fchip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+.sv-day { display: flex; align-items: center; gap: 8px; margin: 18px 0 8px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.sv-day .glyph { width: 16px; height: 16px; color: var(--park); }
+.sc {
+  display: block; width: 100%; margin-bottom: 10px; padding: 14px;
+  border-radius: 16px; border: 1px solid var(--line); background: var(--surface);
+  transition: transform .15s ease;
+}
+.sc:active { transform: scale(.99); }
+.sc-top { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.sc-status { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
+.sc-status.is-posted { color: var(--good); }
+.sc-title { display: block; margin-top: 8px; font-family: var(--display); font-size: 19px; font-weight: 700; line-height: 1.22; text-wrap: balance; }
+.sc-hook { display: block; margin-top: 6px; font-size: 15px; font-style: italic; color: var(--ink-2); }
+.sc-foot { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
+.sc-meter { display: flex; gap: 3px; margin-left: auto; }
+.sc-meter i { width: 18px; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--park) 22%, transparent); }
+.sc-meter i.on { background: var(--park); }
+.empty { margin-top: 24px; padding: 18px; border-radius: 16px; border: 1px dashed var(--line); color: var(--ink-2); text-align: center; }
+
+/* ---------- kit view ---------- */
+.kit-sec { margin-top: 24px; }
+.kit-h { margin-bottom: 8px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.kit-note { margin: -2px 0 10px; font-size: 14px; color: var(--ink-2); }
+.tips { border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
+.tip { padding: 12px 14px; border-top: 1px solid var(--line); }
+.tip:first-child { border-top: 0; }
+.tip b { display: block; font-size: 15.5px; }
+.tip span { display: block; font-size: 14.5px; color: var(--ink-2); }
+.copybox { padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
+.copy-text { white-space: pre-wrap; font-size: 15px; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.copy-row { display: flex; align-items: flex-start; gap: 10px; padding: 12px 10px 12px 14px; border-top: 1px solid var(--line); }
+.copy-row:first-child { border-top: 0; }
+.copy-row .copy-text { flex: 1; min-width: 0; }
+.copy-row small { display: block; margin-bottom: 2px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.copy-btn {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  height: 38px; padding: 0 14px; margin-top: 10px; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent); font-size: 13.5px; font-weight: 700;
+}
+.copy-btn svg { width: 16px; height: 16px; }
+.copy-row .copy-btn { margin-top: 0; width: 44px; height: 44px; padding: 0; justify-content: center; background: var(--surface-2); color: var(--accent); border: 1px solid var(--line); }
+.reset { width: 100%; height: 50px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); font-weight: 700; color: var(--rec); }
+.reset.is-armed { background: var(--rec); border-color: var(--rec); color: var(--on-rec); }
+.kit-foot { margin-top: 26px; font-size: 13px; color: var(--ink-3); text-align: center; }
+
+/* ---------- bottom tab bar ---------- */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  -webkit-backdrop-filter: saturate(1.5) blur(16px);
+  backdrop-filter: saturate(1.5) blur(16px);
+  border-top: 1px solid var(--line);
+}
+.tabs { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 420px; margin-inline: auto; }
+.tab-pill {
+  --i: 0;
+  position: absolute; top: 0; left: 0;
+  width: calc((100% - 8px) / 3); height: 52px; border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  transform: translateX(calc(var(--i) * (100% + 4px)));
+  transition: transform .38s cubic-bezier(.22, 1, .36, 1);
+}
+.tab { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; height: 52px; border-radius: 14px; font-size: 12px; font-weight: 700; color: var(--ink-3); }
+.tab svg { width: 22px; height: 22px; }
+.tab[aria-current="page"] { color: var(--accent); }
+
+/* ---------- script sheet ---------- */
+.scrim { position: fixed; inset: 0; z-index: 40; background: var(--scrim); opacity: 0; transition: opacity .25s ease; }
+.scrim.is-open { opacity: 1; }
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 41;
+  max-width: 640px; margin-inline: auto;
+  max-height: calc(100% - 24px - env(safe-area-inset-top, 0px));
+  display: flex; flex-direction: column;
+  border-radius: 22px 22px 0 0; background: var(--surface);
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, .25);
+  transform: translateY(100%);
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.sheet.is-open { transform: translateY(0); }
+.sheet.is-dragging { transition: none; }
+.sh-grab { display: flex; justify-content: center; padding: 10px 0 6px; touch-action: none; cursor: grab; }
+.sh-grab span { width: 42px; height: 5px; border-radius: 3px; background: var(--line); }
+.sh-head { position: relative; padding: 0 60px 12px 18px; touch-action: none; }
+.sh-eye { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+.sh-title { margin-top: 8px; font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.2; text-wrap: balance; }
+.sh-title:focus { outline: none; }
+.sh-x { position: absolute; top: -6px; right: 10px; border: 0; background: none; }
+.sh-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 2px 18px 22px; }
+.sh-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.sh-meta span { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.sh-film { margin-top: 12px; font-size: 15px; color: var(--ink-2); }
+.sh-film b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.sh-h { display: flex; align-items: baseline; justify-content: space-between; margin: 22px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.sh-h span { font-family: var(--mono); letter-spacing: 0; font-size: 12px; }
+.sh-post { font-size: 15px; color: var(--ink-2); }
+.broll { display: flex; flex-direction: column; gap: 6px; }
+.broll li { position: relative; padding-left: 16px; font-size: 15px; color: var(--ink-2); }
+.broll li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--park); }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; padding: 4px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.step { height: 40px; border-radius: 10px; font-size: 13px; font-weight: 700; color: var(--ink-3); text-align: center; }
+.steps.three { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+.step.is-on { color: var(--park); }
+.step[aria-checked="true"] { background: var(--park); color: var(--on-park); }
+
+.takes { display: flex; flex-direction: column; gap: 8px; }
+.take-btn { display: flex; gap: 12px; width: 100%; padding: 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface-2); }
+.take.is-focus .take-btn { border-color: var(--park); box-shadow: inset 0 0 0 1px var(--park); }
+.take-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.take-label { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--park); }
+.take-when { font-size: 13px; font-weight: 600; color: var(--ink-3); }
+.take-say { margin-top: 2px; font-size: 16.5px; line-height: 1.45; color: var(--ink); }
+.take.is-done .take-say { color: var(--ink-3); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.take.just .tick { animation: pop .34s cubic-bezier(.22, 1, .36, 1); }
+
+mark.fill { padding: 0 3px; border-radius: 4px; background: var(--fill); color: inherit; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+.sh-foot { display: flex; gap: 10px; padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); background: var(--surface); }
+.btn {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 52px; padding: 0 12px; border-radius: 14px;
+  border: 1px solid var(--line); background: var(--surface-2);
+  font-size: 15px; font-weight: 700; color: var(--ink);
+}
+.btn svg { width: 18px; height: 18px; }
+.btn-primary { background: var(--rec); border-color: var(--rec); color: var(--on-rec); }
+
+/* ---------- take mode ---------- */
+.tm {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; flex-direction: column;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px calc(14px + env(safe-area-inset-bottom, 0px));
+  background: var(--bg);
+}
+.tm-head { display: flex; align-items: center; gap: 10px; max-width: 600px; width: 100%; margin-inline: auto; }
+.tm-slate { flex: 1; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+.tm-name { max-width: 600px; width: 100%; margin: 6px auto 0; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+.tm-stage { flex: 1; min-height: 0; overflow-y: auto; display: flex; align-items: center; justify-content: center; padding: 14px 0; touch-action: pan-y; }
+.tm-card {
+  width: 100%; max-width: 600px; margin: auto;
+  padding: 24px 22px; border-radius: 24px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.tm-card.slide-l { animation: in-l .32s cubic-bezier(.22, 1, .36, 1); }
+.tm-card.slide-r { animation: in-r .32s cubic-bezier(.22, 1, .36, 1); }
+@keyframes in-l { from { opacity: 0; transform: translateX(34px); } to { opacity: 1; transform: none; } }
+@keyframes in-r { from { opacity: 0; transform: translateX(-34px); } to { opacity: 1; transform: none; } }
+.tm-role { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--park); }
+.tm-say { margin-top: 12px; font-family: var(--display); font-size: clamp(26px, 7.2vw, 36px); font-weight: 600; line-height: 1.24; text-wrap: pretty; }
+.tm-when { margin-top: 16px; font-size: 14.5px; font-weight: 600; color: var(--ink-3); }
+.tm-got { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--park) 16%, transparent); color: var(--park); font-size: 13px; font-weight: 700; }
+.tm-got svg { width: 14px; height: 14px; }
+.tm-dots { display: flex; justify-content: center; gap: 8px; margin: 4px 0 14px; }
+.tm-dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.tm-dots span.on { background: var(--park); }
+.tm-dots span.cur { outline: 2px solid var(--park); outline-offset: 2px; }
+.tm-foot { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 8px; max-width: 600px; width: 100%; margin-inline: auto; }
+.tm-foot.two { grid-template-columns: 1fr 1fr; }
+.tm-foot .btn { padding: 0 8px; }
+
+/* ---------- toast + confetti ---------- */
+.toast {
+  position: fixed; left: 50%; z-index: 60;
+  bottom: calc(var(--tab-h) + 22px + env(safe-area-inset-bottom, 0px));
+  max-width: calc(100% - 32px);
+  padding: 11px 16px; border-radius: 999px;
+  background: var(--ink); color: var(--bg);
+  font-size: 14.5px; font-weight: 600; text-align: center;
+  opacity: 0; transform: translate(-50%, 16px); pointer-events: none;
+  transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1);
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+.confetti { position: fixed; inset: 0; z-index: 70; width: 100%; height: 100%; pointer-events: none; }
+
+@media (min-width: 560px) {
+  .hero { padding: 22px 24px 20px; }
+  .hero-title { font-size: 34px; }
+  .page-title { font-size: 34px; }
+}
+@media (max-width: 370px) {
+  .sync-t { display: none; }
+  .sync { padding: 0 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+
+<div class="app" id="app">
+  <header class="brandbar">
+    <div class="brand">
+      <p class="brand-name"><em>Happily Ever</em> <em class="brand-b">Filmed</em></p>
+      <p class="brand-sub">Call sheets · Sept 25 – Oct 3</p>
+    </div>
+    <span class="sync" id="sync" data-state="local" role="status"><span class="sync-dot"></span><span class="sync-t" id="sync-t">Saved on phone</span></span>
+  </header>
+
+  <nav class="rail" id="rail" aria-label="Days of the trip"></nav>
+
+  <main>
+    <section class="view" id="view-days" aria-label="Day plan"></section>
+    <section class="view" id="view-scripts" aria-label="Scripts" hidden></section>
+    <section class="view" id="view-kit" aria-label="Kit" hidden></section>
+  </main>
+
+  <nav class="tabbar" aria-label="Sections">
+    <div class="tabs">
+      <span class="tab-pill" id="tab-pill" aria-hidden="true"></span>
+      <button type="button" class="tab" data-act="tab" data-tab="days" id="tab-days"></button>
+      <button type="button" class="tab" data-act="tab" data-tab="scripts" id="tab-scripts"></button>
+      <button type="button" class="tab" data-act="tab" data-tab="kit" id="tab-kit"></button>
+    </div>
+  </nav>
+</div>
+
+<div class="scrim" id="scrim" data-act="close" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" hidden></section>
+<section class="tm" id="tm" role="dialog" aria-modal="true" aria-labelledby="tm-title" hidden></section>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<canvas class="confetti" id="confetti" aria-hidden="true" hidden></canvas>
+
+<script>
+(function () {
+"use strict";
+
+/* =====================================================================
+   THE PLAN
+   Built from trips/mashburn-fall-2026.json (Disney-trip-planner repo)
+   and the Mashburn packing list. Words in [brackets] get filled in on
+   camera. Straight apostrophes become curly ones when shown.
+   ===================================================================== */
+
+function wrap(d, extra) {
+  return {
+    time: "Night", title: "10-minute wrap",
+    items: [
+      { id: d + "-w1", type: "task", text: "Charge the phone, the portable chargers and the mic" },
+      { id: d + "-w2", type: "task", text: "Heart today's keepers", note: "Your Favorites album becomes the edit bin." },
+      { id: d + "-w3", type: "task", text: "Three notes: best moment, one surprise, one tip", note: "These turn into captions. A voice memo works too." },
+      { id: d + "-w4", type: "task", text: "Let today's clips back up on the resort Wi-Fi" }
+    ].concat(extra || [])
+  };
+}
+
+var DAYS = [
+  {
+    id: "prep", date: "2026-09-25", dow: "Fri", md: "9/25", nm: "tonight", park: "prep",
+    eyebrow: "Night before · Friday, Sept 25", title: "Get the Kit Ready",
+    facts: [["Leave", "Tomorrow"], ["Film", "Park-bag video"]],
+    focus: "Twenty minutes tonight means no fiddling with settings at the bus stop.",
+    moments: [
+      { time: "Phone", title: "Make room and set the camera", items: [
+        { id: "p-space", type: "task", text: "Free up 30 GB or more", note: "Settings › General › iPhone Storage. Offload apps you won't open this week." },
+        { id: "p-backup", type: "task", text: "Make sure your photo backup is caught up", note: "Then you can clear space mid-trip without worrying." },
+        { id: "p-4k", type: "task", text: "Set video to 4K at 30 fps", note: "Settings › Camera › Record Video. 4K leaves room to crop and zoom in the edit." },
+        { id: "p-grid", type: "task", text: "Turn on the camera grid", note: "Settings › Camera › Grid. It keeps the castle straight." },
+        { id: "p-audio", type: "task", text: "Save three audios for Reels", note: "On a Reel, tap the audio name, then Save. One upbeat, one calm, one spooky for party nights." }
+      ]},
+      { time: "Gear", title: "Charge and pack", items: [
+        { id: "p-mic", type: "task", text: "Charge the mic and record a 10-second test", note: "Play it back with headphones to be sure the phone is using the mic." },
+        { id: "p-tripod", type: "task", text: "Tripod in your park bag", note: "Allowed in the parks if it fits inside a standard backpack and extends under 6 ft. Selfie sticks are not." },
+        { id: "p-chargers", type: "task", text: "Charge every portable charger", note: "Filming and the Disney app together drain a phone fast." },
+        { id: "p-cloth", type: "task", text: "Lens cloth in your pocket", note: "Sunscreen fingers are what make park footage look hazy." },
+        { id: "p-laptop", type: "task", text: "Laptop charger in the work bag", note: "For editing at night." }
+      ]},
+      { time: "8:00p", at: "20:00", title: "Film tonight", items: [
+        { id: "p-s01", type: "script", ref: "s01", takes: [1, 2, 3, 4, 5, 6] },
+        { id: "p-flat", type: "photo", text: "Flat-lay of the park bag, overhead", note: "Everything laid out on the bed. This is the thumbnail for the packing video." },
+        { id: "p-story", type: "story", text: "Story: “Disney World tomorrow”", note: "The bags by the door. Keep the house number and street out of frame." }
+      ]}
+    ]
+  },
+  {
+    id: "d1", date: "2026-09-26", dow: "Sat", md: "9/26", nm: "Saturday", park: "travel",
+    eyebrow: "Day 1 · Saturday, Sept 26", title: "Arrival Day",
+    facts: [["Travel", "Driving down"], ["Tonight", "Pool or Disney Springs"]],
+    focus: "Keep today light. Film the drive, a first look at the resort, and one arrival-day tip.",
+    moments: [
+      { time: "Morning", at: "07:00", title: "On the road", items: [
+        { id: "d1-load", type: "shot", text: "Loading the car, 5 seconds", note: "Doors open, bags going in. This opens your trip recap." },
+        { id: "d1-road", type: "shot", text: "Road-trip clips: signs, snacks, the view out the window", note: "Hold each one for 5 seconds. Film from the passenger seat only." },
+        { id: "d1-bucees", type: "shot", text: "Buc-ee's stop, if you make one", note: "The sign and the snack haul. Road-trip families love this one." },
+        { id: "d1-poll", type: "story", text: "Story poll: “Drive or fly to Disney?”", note: "The answers tell you which travel video to make next." }
+      ]},
+      { time: "Afternoon", at: "13:00", title: "Arrival", items: [
+        { id: "d1-text", type: "screen", text: "Screenshot the room-ready text", note: "Crop out your name and confirmation number." },
+        { id: "d1-sign", type: "shot", text: "Resort sign or entrance, 5 seconds" },
+        { id: "d1-s03", type: "script", ref: "s03", takes: [1, 2, 3] },
+        { id: "d1-walk", type: "shot", text: "One slow walk from the door to the window", note: "Phone at chest height, no stopping. This becomes the room tour." },
+        { id: "d1-groc", type: "shot", text: "Groceries: the pickup and the stocked fridge", note: "Two clips for the arrival-day tip video." },
+        { id: "d1-fam", type: "photo", text: "Family photo at the resort entrance", note: "Everyone in it. Use the tripod or ask a cast member." }
+      ]},
+      { time: "Evening", at: "17:30", title: "Easy first night", items: [
+        { id: "d1-s02", type: "script", ref: "s02", takes: [1, 2, 3, 4, 5] },
+        { id: "d1-eve", type: "shot", text: "Three clips from the pool, dinner or Disney Springs" },
+        { id: "d1-made", type: "story", text: "Story: “We made it”", note: "One clip. Start a Fall 2026 highlight with it." },
+        { id: "d1-post", type: "post", ref: "s01" }
+      ]},
+      wrap("d1", [{ id: "d1-shirts", type: "task", text: "Lay out everyone's Halloween shirts for tomorrow" }])
+    ]
+  },
+  {
+    id: "d2", date: "2026-09-27", dow: "Sun", md: "9/27", nm: "Sunday", park: "party",
+    eyebrow: "Day 2 · Sunday, Sept 27", title: "Not-So-Scary Party #1",
+    facts: [["In at", "4:00p"], ["Party", "7p–12a"], ["Parades", "8:15p & 11:15p"]],
+    focus: "Your biggest content night. Ride during the first parade, screenshot the proof, and watch the 11:15.",
+    moments: [
+      { time: "Morning", at: "09:00", title: "Slow morning at the resort", items: [
+        { id: "d2-s04", type: "script", ref: "s04", takes: [1, 2, 3, 4, 5] },
+        { id: "d2-pool", type: "shot", text: "Pool clips: three shots of the kids swimming", note: "From behind or at a distance is fine." },
+        { id: "d2-q", type: "story", text: "Story question: “Party tonight. What can't we miss?”", note: "Use the question sticker. The answers are next year's video." }
+      ]},
+      { time: "3:00p", at: "15:00", title: "Getting ready", items: [
+        { id: "d2-shirts", type: "shot", text: "Everyone in Halloween shirts walking past the camera", note: "Tripod at hip height, and everyone walks by it." },
+        { id: "d2-famphoto", type: "photo", text: "Family photo in your Halloween shirts" }
+      ]},
+      { time: "4:00p", at: "16:00", title: "Main Gate", items: [
+        { id: "d2-tap", type: "shot", text: "Tapping in at the gate" },
+        { id: "d2-band", type: "shot", text: "Wristband going on, close-up", note: "Hands only. Hold for 3 seconds." },
+        { id: "d2-map", type: "photo", text: "Party map, front and back", note: "Flat on a bench. A ready-made carousel slide." }
+      ]},
+      { time: "6:00p", at: "18:00", title: "Golden hour", items: [
+        { id: "d2-before", type: "screen", text: "Screenshot TRON's posted wait", note: "Your “before” number for the parade-window video." },
+        { id: "d2-castle", type: "shot", text: "Castle with Halloween décor at sunset", note: "Press and hold on the castle to lock focus, then slide the sun icon down so the sky keeps its color." },
+        { id: "d2-main", type: "shot", text: "Main Street pumpkins and garland: three slow pans" },
+        { id: "d2-mansion", type: "shot", text: "Haunted Mansion at dusk" },
+        { id: "d2-pp", type: "photo", text: "Castle photo with a PhotoPass photographer", note: "So you're in a picture too." }
+      ]},
+      { time: "7:00p", at: "19:00", title: "Party starts", items: [
+        { id: "d2-candy", type: "shot", text: "Candy dropping into a bag at a trick-or-treat stop, close-up" },
+        { id: "d2-teal", type: "photo", text: "The teal-token sign at a candy stop", note: "For the allergy-friendly tip in the party video." },
+        { id: "d2-char", type: "shot", text: "A character in party costume", note: "From the side of the line is fine." }
+      ]},
+      { time: "8:15p", at: "20:15", title: "First parade = ride window", items: [
+        { id: "d2-during", type: "screen", text: "Screenshot TRON's wait during the parade", note: "Same ride as your 6:00p screenshot." },
+        { id: "d2-s06", type: "script", ref: "s06", takes: [1, 2, 3, 4] },
+        { id: "d2-queue", type: "shot", text: "The short queue: slow pan across the empty switchbacks", note: "Proof shot, 5 seconds." }
+      ]},
+      { time: "9:05p", at: "21:05", title: "Shows", items: [
+        { id: "d2-hocus", type: "shot", text: "Hocus Pocus Villain Spelltacular: 10 seconds, then watch" },
+        { id: "d2-fw", type: "shot", text: "10:00p fireworks: one 15-second vertical clip", note: "Lock focus on the castle, lower the exposure, then put the phone down and enjoy it." },
+        { id: "d2-fwstory", type: "story", text: "Story: one fireworks clip" }
+      ]},
+      { time: "11:15p", at: "23:05", title: "Second parade", items: [
+        { id: "d2-horse", type: "shot", text: "Headless Horseman riding ahead of the parade", note: "He moves fast. Start recording when the announcement plays." },
+        { id: "d2-floats", type: "shot", text: "Boo-to-You Parade: three favorite floats, 5 seconds each" },
+        { id: "d2-room", type: "shot", text: "Wide shot of the parade route showing the open space", note: "Proof that the 11:15 is thinner. You'll film it again Thursday." },
+        { id: "d2-s05", type: "script", ref: "s05", takes: [1] }
+      ]},
+      wrap("d2", [{ id: "d2-haul", type: "photo", text: "Candy haul on the bed, overhead", note: "Before anyone eats it." }])
+    ]
+  },
+  {
+    id: "d3", date: "2026-09-28", dow: "Mon", md: "9/28", nm: "Monday", park: "ak",
+    eyebrow: "Day 3 · Monday, Sept 28", title: "Animal Kingdom",
+    facts: [["Bus stop", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["Topolino's", "11:50a"]],
+    focus: "Film your rope-drop rule at the bus stop. Pandora's wait times prove it by 10:30.",
+    moments: [
+      { time: "6:00a", at: "06:00", title: "Bus stop", items: [
+        { id: "d3-s08a", type: "script", ref: "s08", takes: [1, 2] },
+        { id: "d3-stop", type: "shot", text: "The empty bus stop in the dark, then the bus pulling up" },
+        { id: "d3-story", type: "story", text: "Story: “6 a.m. at the bus stop. You'll see why.”" }
+      ]},
+      { time: "7:30a", at: "07:30", title: "Early Entry: Pandora", items: [
+        { id: "d3-pandora", type: "shot", text: "Walking into Pandora at first light", note: "The floating mountains, 10 seconds, slow walk." },
+        { id: "d3-fopwait", type: "screen", text: "Screenshot Flight of Passage's wait as you get in line" },
+        { id: "d3-fopq", type: "shot", text: "Flight of Passage queue: two clips of the theming" },
+        { id: "d3-s08b", type: "script", ref: "s08", takes: [3] },
+        { id: "d3-navi", type: "shot", text: "Na'vi River Journey queue plants" }
+      ]},
+      { time: "8:00a", at: "08:00", title: "Kilimanjaro Safaris", items: [
+        { id: "d3-safari", type: "shot", text: "Animals up close: four to six clips", note: "Brace your elbows on the truck. Tap 2x or 3x instead of pinching to zoom." },
+        { id: "d3-animal", type: "photo", text: "One animal photo strong enough for a cover" }
+      ]},
+      { time: "9:30a", at: "09:30", title: "Discovery Island", items: [
+        { id: "d3-tree", type: "shot", text: "Tree of Life: slow tilt up from the carvings" },
+        { id: "d3-zoo", type: "shot", text: "Zootopia: Better Zoogether entrance", note: "New scene added in August." },
+        { id: "d3-dino", type: "shot", text: "DinoLand construction walls, 5 seconds" },
+        { id: "d3-bluey", type: "shot", text: "Bluey's Wild World at Conservation Station", note: "Only if there's time before you leave." },
+        { id: "d3-s10", type: "script", ref: "s10", takes: [1, 2, 3, 4, 5] },
+        { id: "d3-fop2", type: "screen", text: "Screenshot Flight of Passage's wait again around 10:30", note: "Your “after” number." },
+        { id: "d3-s08c", type: "script", ref: "s08", takes: [4, 5] }
+      ]},
+      { time: "10:50a", at: "10:50", title: "To Riviera", items: [
+        { id: "d3-riv", type: "shot", text: "Riviera lobby, or the Skyliner gliding past", note: "A 5-second Skyliner shot is useful all year." }
+      ]},
+      { time: "11:50a", at: "11:50", title: "Topolino's Terrace", items: [
+        { id: "d3-view", type: "shot", text: "Rooftop view from your table" },
+        { id: "d3-chars", type: "shot", text: "Each character at your table, 3 to 5 seconds", note: "Mickey, Minnie, Donald and Daisy." },
+        { id: "d3-plate", type: "photo", text: "Your plate, overhead, before anyone eats" },
+        { id: "d3-charphoto", type: "photo", text: "Family photo with a character" },
+        { id: "d3-s09", type: "script", ref: "s09", takes: [1, 2, 3, 4, 5] }
+      ]},
+      { time: "1:30p", at: "13:30", title: "Rest at the resort", items: [
+        { id: "d3-s05", type: "script", ref: "s05", takes: [2, 3, 4, 5, 6] },
+        { id: "d3-post", type: "post", ref: "s05", note: "Families are booking October parties right now." }
+      ]},
+      wrap("d3", [{ id: "d3-bus", type: "task", text: "Pack the park bag tonight", note: "Tomorrow's bus stop is 7:00a." }])
+    ]
+  },
+  {
+    id: "d4", date: "2026-09-29", dow: "Tue", md: "9/29", nm: "Tuesday", park: "ep",
+    eyebrow: "Day 4 · Tuesday, Sept 29", title: "EPCOT",
+    facts: [["Bus stop", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["Guardians", "~12:00p"]],
+    focus: "Rope-drop proof in the morning, then Food & Wine content all afternoon.",
+    moments: [
+      { time: "7:00a", at: "07:00", title: "Bus stop", items: [
+        { id: "d4-sunrise", type: "shot", text: "Bus stop at sunrise, 5 seconds", note: "Stock footage for every rope-drop video you make this year." },
+        { id: "d4-story", type: "story", text: "Story: “EPCOT day. Bus at 7 for 8:30 Early Entry.”" }
+      ]},
+      { time: "8:30a", at: "08:30", title: "Early Entry", items: [
+        { id: "d4-se", type: "shot", text: "Walking toward Spaceship Earth in morning light", note: "Low angle, slow walk. One of the best shots of the week." },
+        { id: "d4-s11a", type: "script", ref: "s11", takes: [1, 2, 3] },
+        { id: "d4-frozen", type: "screen", text: "Screenshot Frozen Ever After's wait when you ride" },
+        { id: "d4-tt", type: "shot", text: "Test Track or Frozen: the building and one queue clip" },
+        { id: "d4-remy", type: "shot", text: "Remy's Ratatouille Adventure: the Paris courtyard" }
+      ]},
+      { time: "10:30a", at: "10:30", title: "Proof", items: [
+        { id: "d4-frozen2", type: "screen", text: "Screenshot Frozen's wait and Lightning Lane times now", note: "Frozen's Lightning Lane is usually gone by 11a." },
+        { id: "d4-s11b", type: "script", ref: "s11", takes: [4, 5] }
+      ]},
+      { time: "12:00p", at: "12:00", title: "Guardians", items: [
+        { id: "d4-gotg", type: "shot", text: "Cosmic Rewind building and the Lightning Lane entrance" },
+        { id: "d4-react", type: "shot", text: "Your 5-second reaction right after the ride", note: "You'll use it Friday in the Single Pass video." }
+      ]},
+      { time: "1:00p", at: "13:00", title: "Food & Wine", items: [
+        { id: "d4-boards", type: "photo", text: "Every menu board you order from", note: "So captions get dish names and prices right." },
+        { id: "d4-dishes", type: "photo", text: "Every dish on your tray, overhead", note: "The trays from your packing list make a clean backdrop." },
+        { id: "d4-bites", type: "shot", text: "One bite shot per dish, 3 seconds each" },
+        { id: "d4-s13", type: "script", ref: "s13", takes: [1, 2, 3, 4, 5, 6] },
+        { id: "d4-s12", type: "script", ref: "s12", takes: [1, 2, 3, 4, 5, 6] },
+        { id: "d4-ws", type: "shot", text: "World Showcase: three pavilions, 5 seconds each" },
+        { id: "d4-poll", type: "story", text: "Story poll: “Which dish should we try next?”" }
+      ]},
+      { time: "9:00p", at: "21:00", title: "Luminous", items: [
+        { id: "d4-lum", type: "shot", text: "Luminous: one 15-second clip, then watch", note: "Check the app for tonight's time." },
+        { id: "d4-senight", type: "photo", text: "Spaceship Earth lit up at night" }
+      ]},
+      wrap("d4", [{ id: "d4-post", type: "post", ref: "s06", note: "Edit it while the laundry runs." }])
+    ]
+  },
+  {
+    id: "d5", date: "2026-09-30", dow: "Wed", md: "9/30", nm: "Wednesday", park: "hs",
+    eyebrow: "Day 5 · Wednesday, Sept 30", title: "Hollywood Studios",
+    facts: [["Bus stop", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["First", "Muppets coaster"]],
+    focus: "Go straight to the Muppets coaster for first-look content, then screen-record a mobile order at 10:30.",
+    moments: [
+      { time: "7:00a", at: "07:00", title: "Bus stop", items: [
+        { id: "d5-story", type: "story", text: "Story: “Straight to the new Muppets coaster.”" }
+      ]},
+      { time: "8:30a", at: "08:30", title: "Early Entry: Muppets coaster", items: [
+        { id: "d5-marquee", type: "shot", text: "Rock 'n' Roller Coaster Starring The Muppets: marquee and building" },
+        { id: "d5-s14a", type: "script", ref: "s14", takes: [1, 2] },
+        { id: "d5-queue", type: "shot", text: "Queue theming: three clips" },
+        { id: "d5-react", type: "shot", text: "Everyone walking out, first reactions" },
+        { id: "d5-s14b", type: "script", ref: "s14", takes: [3, 4, 5] },
+        { id: "d5-wait", type: "screen", text: "Screenshot the coaster's wait at 11:00", note: "Shows how fast the newest ride's line builds." }
+      ]},
+      { time: "9:30a", at: "09:30", title: "Toy Story Land and Galaxy's Edge", items: [
+        { id: "d5-toy", type: "shot", text: "Toy Story Land from a low angle", note: "Crouch down so the giant scale reads." },
+        { id: "d5-slinky", type: "shot", text: "Slinky Dog Dash racing overhead" },
+        { id: "d5-falcon", type: "shot", text: "Millennium Falcon: slow 10-second pan" },
+        { id: "d5-milk", type: "photo", text: "Blue or green milk in hand, spires behind it" }
+      ]},
+      { time: "10:30a", at: "10:30", title: "Mobile order", items: [
+        { id: "d5-rec", type: "screen", text: "Screen-record the mobile order from start to finish", note: "Open Control Center and tap Screen Recording (add it in settings if it's missing). Blur your card in the edit." },
+        { id: "d5-s16", type: "script", ref: "s16", takes: [1, 2, 3, 4, 5] }
+      ]},
+      { time: "1:00p", at: "13:00", title: "Afternoon", items: [
+        { id: "d5-s15", type: "script", ref: "s15", takes: [1, 2, 3, 4, 5] },
+        { id: "d5-tower", type: "shot", text: "Tower of Terror against the sky: slow tilt up" },
+        { id: "d5-poll", type: "story", text: "Story poll: “Muppets coaster: ride it or skip it?”" }
+      ]},
+      { time: "9:00p", at: "21:00", title: "Fantasmic!", items: [
+        { id: "d5-fant", type: "shot", text: "Fantasmic!: 15 seconds of the finale, then watch" },
+        { id: "d5-eeh", type: "shot", text: "Extended Evening Hours: the near-empty street", note: "Only if they're on tonight. Confirm in the app." }
+      ]},
+      wrap("d5")
+    ]
+  },
+  {
+    id: "d6", date: "2026-10-01", dow: "Thu", md: "10/1", nm: "Thursday", park: "party",
+    eyebrow: "Day 6 · Thursday, Oct 1", title: "Not-So-Scary Party #2",
+    facts: [["In at", "4:00p"], ["New", "7:35p Hocus Pocus"], ["Parades", "8:15p & 11:15p"]],
+    focus: "Edit and post this morning. Tonight, film the parade route at 8:05 and again at 11:05.",
+    moments: [
+      { time: "Morning", at: "09:00", title: "Slow morning: edit and post", items: [
+        { id: "d6-post12", type: "post", ref: "s12", note: "The festival is running now." },
+        { id: "d6-post14", type: "post", ref: "s14", note: "Post it while the ride is new." },
+        { id: "d6-catch", type: "task", text: "Record any takes you skipped this week", note: "Scripts tab, then the To film filter." },
+        { id: "d6-times", type: "task", text: "Check tonight's showtimes in the app" }
+      ]},
+      { time: "4:00p", at: "16:00", title: "Back to Magic Kingdom", items: [
+        { id: "d6-gaps", type: "task", text: "Film anything still unchecked from Sunday", go: "d2" },
+        { id: "d6-day", type: "shot", text: "Party décor in daylight that you missed Sunday" }
+      ]},
+      { time: "7:35p", at: "19:35", title: "New Hocus Pocus show", items: [
+        { id: "d6-hocus", type: "shot", text: "The 7:35 show: the Sanderson sisters' entrance, 10 seconds", note: "Tonight is the first night of the 7:35 show." },
+        { id: "d6-hstory", type: "story", text: "Story: “The new 7:35 Hocus Pocus show starts tonight.”" }
+      ]},
+      { time: "8:05p", at: "20:05", title: "Crowd comparison, part 1", items: [
+        { id: "d6-crowd1", type: "shot", text: "The parade route from one fixed spot, 5 seconds", note: "Pick a lamppost or shop door you can find again at 11:05." },
+        { id: "d6-s18a", type: "script", ref: "s18", takes: [1] }
+      ]},
+      { time: "8:15p", at: "20:15", title: "Ride and meet", items: [
+        { id: "d6-meet", type: "shot", text: "The character meet you skipped Sunday" },
+        { id: "d6-ride", type: "shot", text: "A ride you missed Sunday: queue or building" }
+      ]},
+      { time: "10:00p", at: "22:00", title: "Fireworks", items: [
+        { id: "d6-fw", type: "shot", text: "Fireworks from a different spot than Sunday" }
+      ]},
+      { time: "11:05p", at: "23:05", title: "Crowd comparison, part 2", items: [
+        { id: "d6-crowd2", type: "shot", text: "Same spot, same framing, 5 seconds" },
+        { id: "d6-s18b", type: "script", ref: "s18", takes: [2] },
+        { id: "d6-horse", type: "shot", text: "Headless Horseman, if you missed him Sunday" }
+      ]},
+      wrap("d6", [{ id: "d6-haul", type: "photo", text: "Candy haul #2 next to Sunday's pile" }])
+    ]
+  },
+  {
+    id: "d7", date: "2026-10-02", dow: "Fri", md: "10/2", nm: "Friday", park: "mk",
+    eyebrow: "Day 7 · Friday, Oct 2", title: "Magic Kingdom",
+    facts: [["Bus stop", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["TRON", "~12:00p"]],
+    focus: "Get the empty Main Street shot at 7, then the Big Thunder and Single Pass videos.",
+    moments: [
+      { time: "6:00a", at: "06:00", title: "Bus stop", items: [
+        { id: "d7-story", type: "story", text: "Story: “Last park day. 6 a.m. bus stop again.”" }
+      ]},
+      { time: "7:00a", at: "07:00", title: "Tap-in and Main Street", items: [
+        { id: "d7-tap", type: "shot", text: "Tapping in as the gates open" },
+        { id: "d7-main", type: "shot", text: "Main Street, nearly empty, walking toward the castle", note: "Keep right for the Early Entry checkpoint. Phone low and level, slow steps." },
+        { id: "d7-s19a", type: "script", ref: "s19", takes: [1, 2, 3] },
+        { id: "d7-castle", type: "photo", text: "The castle with almost no one in front of it", note: "Your best thumbnail of the trip." }
+      ]},
+      { time: "7:30a", at: "07:30", title: "Early Entry", items: [
+        { id: "d7-7d", type: "shot", text: "Seven Dwarfs Mine Train or Peter Pan's Flight: building and queue" },
+        { id: "d7-wait1", type: "screen", text: "Screenshot the wait when you ride" },
+        { id: "d7-tl", type: "shot", text: "Tomorrowland: the PeopleMover gliding overhead" },
+        { id: "d7-wait2", type: "screen", text: "Screenshot the same ride's wait at 10:00a" },
+        { id: "d7-s19b", type: "script", ref: "s19", takes: [4, 5] }
+      ]},
+      { time: "10:30a", at: "10:30", title: "Frontierland", items: [
+        { id: "d7-btm", type: "shot", text: "Big Thunder train rumbling past, 5 seconds" },
+        { id: "d7-height", type: "photo", text: "Big Thunder's height sign at the entrance" },
+        { id: "d7-s21", type: "script", ref: "s21", takes: [1, 2, 3, 4] },
+        { id: "d7-tiana", type: "shot", text: "Tiana's Bayou Adventure drop from the viewing area" },
+        { id: "d7-hm", type: "shot", text: "Haunted Mansion and Liberty Square details" }
+      ]},
+      { time: "12:00p", at: "12:00", title: "TRON", items: [
+        { id: "d7-tron", type: "shot", text: "TRON canopy and the Lightning Lane entrance" },
+        { id: "d7-react", type: "shot", text: "Your 5-second reaction after TRON" },
+        { id: "d7-s20", type: "script", ref: "s20", takes: [1, 2, 3, 4, 5] }
+      ]},
+      { time: "2:00p", at: "14:00", title: "Afternoon", items: [
+        { id: "d7-rr", type: "story", text: "Story: “Heads up for October: the park railroad is closed until Oct 29.”", note: "Carousel of Progress is closed until spring 2027, too." },
+        { id: "d7-arrive", type: "shot", text: "Party guests arriving in costume as day guests head out", note: "Magic Kingdom closes to day guests at 6p." }
+      ]},
+      { time: "Evening", at: "18:30", title: "Last night", items: [
+        { id: "d7-s17", type: "script", ref: "s17", takes: [1, 2, 3, 4, 5] },
+        { id: "d7-s07", type: "script", ref: "s07", takes: [1, 2, 3, 4] },
+        { id: "d7-s18", type: "script", ref: "s18", takes: [3, 4] },
+        { id: "d7-last", type: "photo", text: "Last-night family photo" },
+        { id: "d7-post", type: "post", ref: "s18" }
+      ]},
+      wrap("d7", [{ id: "d7-pack", type: "task", text: "Pack tonight so checkout is easy" }])
+    ]
+  },
+  {
+    id: "d8", date: "2026-10-03", dow: "Sat", md: "10/3", nm: "Saturday", park: "travel",
+    eyebrow: "Day 8 · Saturday, Oct 3", title: "Departure Day",
+    facts: [["Checkout", "Bell Services holds bags"], ["Skip", "Magic Kingdom today"]],
+    focus: "Finish the resort review at checkout, and film next year's pitch on the way home.",
+    moments: [
+      { time: "Morning", at: "08:30", title: "Checkout", items: [
+        { id: "d8-s22", type: "script", ref: "s22", takes: [1, 2, 3, 4] },
+        { id: "d8-bags", type: "shot", text: "Bags on the bell cart", note: "Cover the claim number." },
+        { id: "d8-s03", type: "script", ref: "s03", takes: [4, 5] },
+        { id: "d8-last", type: "shot", text: "Last look: the room, the view, the pool" }
+      ]},
+      { time: "10:00a", at: "10:00", title: "One more park (optional)", items: [
+        { id: "d8-bye", type: "shot", text: "A goodbye shot at the park entrance" }
+      ]},
+      { time: "Afternoon", at: "13:00", title: "On the road", items: [
+        { id: "d8-s23", type: "script", ref: "s23", takes: [1, 2, 3, 4, 5, 6], note: "Parked, not driving." },
+        { id: "d8-poll", type: "story", text: "Story poll: “Want the full week recap?”" }
+      ]},
+      { time: "Night", title: "Home", items: [
+        { id: "d8-s24", type: "script", ref: "s24", takes: [1, 2, 3, 4, 5] },
+        { id: "d8-backup", type: "task", text: "Copy everything to the laptop and the cloud" },
+        { id: "d8-star", type: "task", text: "Star the 10 best clips of the week", note: "They make the recap and next year's promos." },
+        { id: "d8-thanks", type: "story", text: "Story: “Home. Thanks for following along.”" }
+      ]}
+    ]
+  },
+  {
+    id: "after", date: "2026-10-04", dow: "Oct", md: "4+", nm: "the posting plan", park: "after",
+    eyebrow: "After the trip · Oct 4 onward", title: "Posting Plan",
+    facts: [["Parties", "Through Oct 31"], ["Food & Wine", "Running now"]],
+    focus: "Parties and Food & Wine are running right now, so post those first. Everything else is evergreen.",
+    moments: [
+      { time: "Oct 4–10", title: "Timely: parties and Food & Wine", items: [
+        { id: "a-s24", type: "post", ref: "s24", note: "Sunday 10/4." },
+        { id: "a-s17", type: "post", ref: "s17" },
+        { id: "a-s13", type: "post", ref: "s13" },
+        { id: "a-s07", type: "post", ref: "s07" },
+        { id: "a-s04", type: "post", ref: "s04" },
+        { id: "a-dms", type: "task", text: "Reply to PARTY comments with the playbook", note: "It's in the Kit tab, ready to paste." }
+      ]},
+      { time: "Oct 11–17", title: "Rope-drop week", items: [
+        { id: "a-s08", type: "post", ref: "s08" },
+        { id: "a-s19", type: "post", ref: "s19" },
+        { id: "a-s11", type: "post", ref: "s11" },
+        { id: "a-s10", type: "post", ref: "s10" }
+      ]},
+      { time: "Oct 18–31", title: "Late October", items: [
+        { id: "a-s09", type: "post", ref: "s09" },
+        { id: "a-s21", type: "post", ref: "s21" },
+        { id: "a-s20", type: "post", ref: "s20" }
+      ]},
+      { time: "November", title: "Evergreen bank", items: [
+        { id: "a-s02", type: "post", ref: "s02" },
+        { id: "a-s03", type: "post", ref: "s03" },
+        { id: "a-s15", type: "post", ref: "s15" },
+        { id: "a-s16", type: "post", ref: "s16" },
+        { id: "a-s22", type: "post", ref: "s22" },
+        { id: "a-s23", type: "post", ref: "s23", note: "Post it again in January, when families plan fall trips." }
+      ]}
+    ]
+  }
+];
+
+var SCRIPTS = [
+  {
+    id: "s01", day: "prep", must: true, when: "Fri 9/25 · tonight at home",
+    title: "What's in our park bag for two party nights", short: "Park bag for two party nights",
+    format: "Voiceover + flat-lay",
+    film: "Tonight at home. Lay everything on the bed, film each item going into the bag, then record the voiceover.",
+    hook: "Packing for 2 Halloween party nights at Disney World",
+    takes: [
+      { k: "hook", say: "We leave for Disney World tomorrow, and we're doing two Halloween parties. Here's what's going in the park bag." },
+      { say: "Halloween shirts for all five of us. Costumes are welcome at the party, and matching shirts are the easy version." },
+      { say: "Rain jackets. Late-September storms are common, and they usually pass in under an hour." },
+      { say: "Portable chargers. The Disney app drains your phone fast, and on party nights we're in the park until midnight." },
+      { say: "Fans and a misting bottle for the heat, and a tray for Food & Wine, so one person can carry four plates." },
+      { k: "cta", say: "Follow along this week. I'll show you what worked and what I'd skip." }
+    ],
+    broll: ["Each item going into the bag, one at a time", "Overhead flat-lay of everything on the bed", "The packed bag by the door, with no house number in frame"],
+    caption: "Packing for eight days at Walt Disney World with two Mickey's Not-So-Scary Halloween Party nights. In our park bag: matching Halloween shirts, rain jackets for the afternoon storms, portable chargers for midnight park nights, fans and a mister for the September heat, and a tray for EPCOT Food & Wine. Follow along this week for what worked and what I'd skip.\n\n#disneyworld #mnsshp #disneyhalloween #disneypacking #disneytravelagent",
+    post: "Post Saturday night from the resort."
+  },
+  {
+    id: "s02", day: "d1", must: true, when: "Sat 9/26 · evening at the resort",
+    title: "3 things I do on every arrival day", short: "3 arrival-day must-dos",
+    format: "Talking head",
+    film: "At the pool or in the room once you're settled. Face the light.",
+    hook: "3 things I do on every Disney arrival day",
+    takes: [
+      { k: "hook", say: "I plan Disney trips for a living, and there are three things I do on every arrival day." },
+      { say: "One. Turn on online check-in in the app. Your room-ready text finds you wherever you are, so nobody waits in a lobby." },
+      { say: "Two. Have groceries delivered for the day you arrive. Breakfast, snacks and water are waiting before the first park day." },
+      { say: "Three. Keep the first night light. The pool, an easy dinner, or Disney Springs, which doesn't need a park ticket." },
+      { k: "cta", say: "Save this for your arrival day, and send me a message if you'd like help planning the rest." }
+    ],
+    broll: ["Room-ready text screenshot, name and confirmation number cropped", "Grocery pickup and the stocked fridge", "Pool or Disney Springs clips"],
+    caption: "Arrival day sets the tone for the whole trip. Three things I do every time: turn on online check-in so the room-ready text comes to you, have groceries delivered for the day you arrive, and keep the first night easy with the pool, dinner, or Disney Springs (no park ticket needed). Save this for your trip.\n\n#disneyworld #disneytips #disneyplanning #disneytravelagent #waltdisneyworld",
+    post: "Evergreen. Post it in November."
+  },
+  {
+    id: "s03", day: "d1", must: true, when: "Sat 9/26 arrival + Sat 10/3 checkout",
+    title: "Resort review from a travel advisor", short: "Resort review",
+    format: "Walk-through + talking head",
+    film: "Takes 1–3 as you walk in on arrival day. Takes 4–5 on checkout morning, once you've lived there a week.",
+    hook: "[Resort name]: a travel advisor's review",
+    takes: [
+      { k: "hook", w: "Sat 9/26 · walking in", say: "This is our home for the week, [Resort name]. Come with me for the first look." },
+      { w: "Sat 9/26 · in the room", say: "Here's the room for the five of us. [The first thing you notice: space, beds, the view.]" },
+      { w: "Sat 9/26 · a favorite detail", say: "The detail I'd point out to a client: [a theming detail, the pool, or how close the bus stop is]." },
+      { w: "Sat 10/3 · checkout", say: "A week later, here's my take. The best part was [best thing]. The one thing to know before you book is [one watch-out]." },
+      { k: "cta", w: "Sat 10/3 · checkout", say: "Deciding between resorts? That's my favorite question to help with. Send me a message." }
+    ],
+    broll: ["Resort sign or entrance", "Door-to-window walk", "The view", "Pool and lobby", "One theming detail up close"],
+    caption: "Our home for the week: [Resort name]. What we loved: [best thing]. What I'd tell a client before booking: [watch-out]. Choosing a resort is one of the biggest decisions in a Disney trip, and it's the question I love helping with most. Send me a message if you're deciding.\n\n#disneyresort #disneyworld #waltdisneyworld #disneytravelagent #disneyplanning",
+    post: "Evergreen. Post it in November."
+  },
+  {
+    id: "s04", day: "d2", must: false, when: "Sun 9/27 · morning at the resort",
+    title: "Party day: how we'll make it to midnight", short: "Party-day pacing",
+    format: "Talking head",
+    film: "Poolside or in the room this morning.",
+    hook: "How we pace a Halloween party day so the kids make it to midnight",
+    takes: [
+      { k: "hook", say: "Tonight is our first Mickey's Not-So-Scary Halloween Party, and it runs until midnight. Here's how we're pacing the day." },
+      { say: "This morning is slow on purpose. The pool, lunch, and a real nap." },
+      { say: "We eat before four, because the party ticket gets us in at 4 p.m. and the trick-or-treat lines are shortest early." },
+      { say: "Then we ride while everyone else watches the first parade, and we'll catch the 11:15 parade instead." },
+      { k: "cta", say: "Follow along, and I'll show you whether it worked." }
+    ],
+    broll: ["Pool clips", "Closed curtains for nap time", "Everyone in Halloween shirts heading out", "The castle at 4 p.m."],
+    caption: "Party-day pacing for Mickey's Not-So-Scary Halloween Party: a slow morning, the pool, a real nap, and dinner before 4 p.m., when the party ticket lets you in. Tonight's plan is to ride during the first parade and watch the 11:15 one instead. Follow along to see how it goes.\n\n#mnsshp #notsoscary #disneyhalloween #magickingdom #disneytips",
+    post: "Post the week of Oct 4. Parties run through Halloween."
+  },
+  {
+    id: "s05", day: "d2", must: true, when: "Sun 9/27 night + Mon 9/28 rest time",
+    title: "5 things to know before Mickey's Not-So-Scary Halloween Party", short: "Party: 5 things to know",
+    format: "Talking head + party b-roll",
+    film: "Take 1 at the castle after the 11:15 parade. Takes 2–6 in the room Monday afternoon while it's fresh.",
+    hook: "5 things to know before the Not-So-Scary party",
+    takes: [
+      { k: "hook", w: "Sun · castle, after the 11:15 parade", say: "We just did our first Mickey's Not-So-Scary Halloween Party. Here are five things I'd want you to know before you go." },
+      { w: "Mon · rest time", say: "One. Your party ticket gets you in at 4 p.m. You'll get your wristband at the main gate, and everything at the party checks for it." },
+      { w: "Mon · rest time", say: "Two. There are no Lightning Lanes during the party. Everything is standby, so your ride plan matters." },
+      { w: "Mon · rest time", say: "Three. Ride during the first parade and the fireworks. That's when the lines drop, because everyone else is watching." },
+      { w: "Mon · rest time", say: "Four. Watch the 11:15 parade. It's the same parade with far fewer people. And five, if you need allergy-friendly treats, look for the teal token at the candy stops." },
+      { k: "cta", w: "Mon · rest time", say: "Comment PARTY and I'll send you my full party-night playbook." }
+    ],
+    broll: ["Wristband going on", "The party map", "Candy dropping into a bag", "Parade floats", "Fireworks", "The roomy 11:15 parade route"],
+    caption: "Five things to know before Mickey's Not-So-Scary Halloween Party:\n1. Your party ticket gets you in at 4 p.m. Wristbands are at the main gate.\n2. No Lightning Lanes during the party. Everything is standby.\n3. Ride during the first parade and the fireworks, when lines drop.\n4. The 11:15 parade is the same parade with a much thinner crowd.\n5. Allergy-friendly treats: look for the teal token at the trick-or-treat stops.\n\nComment PARTY and I'll send you my full party-night playbook.\n\n#mnsshp #notsoscary #disneyhalloween #magickingdom #disneytravelagent",
+    post: "Post Monday 9/28. Families are booking October parties right now."
+  },
+  {
+    id: "s06", day: "d2", must: true, when: "Sun 9/27 · 6:00p and 8:15p",
+    title: "Ride during the parade (with proof)", short: "Parade-window proof",
+    format: "Screenshots + talking head in the queue",
+    film: "Screenshot TRON's wait around 6:00p. Record in the short queue during the 8:15 parade.",
+    hook: "Ride during the parade. Here's the proof.",
+    takes: [
+      { k: "hook", w: "Voiceover over the 6:00p screenshot", say: "This is TRON's wait at [time] on a party night. [Wait] minutes." },
+      { w: "8:15p · in the queue", say: "And this is TRON during the first parade. [Wait] minutes. Everyone's on Main Street, so we're in line." },
+      { w: "8:15p · in the queue", say: "At the party, the quiet ride windows are 7 to 9:30, and again after the 10 o'clock fireworks." },
+      { k: "cta", w: "8:15p · in the queue", say: "Save this for your party night." }
+    ],
+    broll: ["Both wait-time screenshots", "Slow pan across the empty switchbacks", "The parade crowd from a distance"],
+    caption: "Party-night trick: ride while everyone else watches the parade. TRON at [time]: [wait] minutes. TRON during the 8:15 parade: [wait] minutes. The quiet windows at Mickey's Not-So-Scary Halloween Party are 7 to 9:30 p.m. and again after the 10 p.m. fireworks. Save this for your party night.\n\n#mnsshp #disneyhalloween #tron #magickingdom #disneytips",
+    post: "Post Tuesday night, while October parties are selling."
+  },
+  {
+    id: "s07", day: "d7", must: false, when: "Fri 10/2 · evening",
+    title: "Candy haul from two party nights", short: "Two-night candy haul",
+    format: "Voiceover + flat-lay",
+    film: "Use the haul photos from both party nights. Record the voiceover Friday evening.",
+    hook: "How much candy 5 of us got at 2 Disney Halloween parties",
+    takes: [
+      { k: "hook", say: "Here's everything five of us brought home from two Not-So-Scary party nights." },
+      { say: "Our favorite stop was [stop]. The most surprising treat was [treat]." },
+      { say: "If your family needs allergy-friendly treats, look for the teal token at the candy stops and trade it in at the marked spots." },
+      { k: "cta", say: "Tell me the one treat your family would never trade." }
+    ],
+    broll: ["Night 1 and night 2 hauls side by side", "Hands sorting favorites", "The teal-token sign"],
+    caption: "Two Not-So-Scary party nights, five trick-or-treat bags. Favorite stop: [stop]. Most surprising treat: [treat]. Allergy-friendly tip: look for the teal token at the trick-or-treat stops and trade it in at the marked locations. What's the one treat your family would never trade?\n\n#mnsshp #disneyhalloween #candyhaul #magickingdom #disneyworld",
+    post: "Post the week of Oct 4."
+  },
+  {
+    id: "s08", day: "d3", must: true, when: "Mon 9/28 · 6:00a to 10:30a",
+    title: "My #1 rope-drop rule", short: "Rope-drop rule: the bus stop",
+    format: "Talking head across the morning",
+    film: "Takes 1–2 at the bus stop (a quiet voice is fine). Take 3 after Flight of Passage. Takes 4–5 around 10:30.",
+    hook: "Why we're at the bus stop at 6 a.m.",
+    takes: [
+      { k: "hook", w: "6:00a · bus stop", say: "It's 6 a.m. and we're at the bus stop. Animal Kingdom doesn't open until 8. Here's why." },
+      { w: "6:00a · bus stop", say: "My rule for every client: be at your resort bus stop two hours before the park's official opening. Not Early Entry. Official opening." },
+      { w: "Pandora · after riding", say: "It's [time], and we've already ridden Flight of Passage. The wait when we got in line was [wait] minutes." },
+      { w: "Around 10:30a", say: "Here's the same ride now. [Wait] minutes. That's what the early bus buys you." },
+      { k: "cta", w: "Around 10:30a", say: "Follow me for the rest of my rope-drop rules." }
+    ],
+    broll: ["The empty bus stop in the dark", "The bus pulling up", "Pandora at first light", "Both Flight of Passage wait screenshots"],
+    caption: "My number one rule for clients: be at your resort bus stop two hours before the park's official opening time. Not Early Entry. Official opening. At Animal Kingdom that meant a 6 a.m. bus stop, and Flight of Passage at [wait] minutes instead of [later wait]. Follow for more of my rope-drop rules.\n\n#ropedrop #animalkingdom #disneytips #disneytravelagent #pandora",
+    post: "Post the week of Oct 11. Evergreen after that."
+  },
+  {
+    id: "s09", day: "d3", must: true, when: "Mon 9/28 · 11:50a",
+    title: "Topolino's Terrace character breakfast, reviewed", short: "Topolino's review",
+    format: "Talking head + b-roll",
+    film: "B-roll during the meal. Record the talking head on the terrace or in the lobby on the way out.",
+    hook: "Topolino's Terrace character breakfast: worth booking?",
+    takes: [
+      { k: "hook", say: "This is Topolino's Terrace at Disney's Riviera Resort, and this is Breakfast à la Art with Mickey, Minnie, Donald and Daisy." },
+      { say: "It's up on the rooftop, and the characters come to your table, so there's no line to meet them." },
+      { say: "Our 11:50 seating was really brunch. Breakfast runs until 12:15, so we skipped lunch." },
+      { say: "The dish I'd order again is [dish]. Would I book it for a client? [Yes or no, and why]." },
+      { k: "cta", say: "Want help picking the right character meal? Send me a message." }
+    ],
+    broll: ["The rooftop view", "Each character at the table", "Plates overhead", "The Riviera lobby or the Skyliner"],
+    caption: "Topolino's Terrace, Breakfast à la Art at Disney's Riviera Resort. Mickey, Minnie, Donald and Daisy visit your table on the rooftop. Our 11:50 seating was really brunch, since breakfast runs until 12:15. Coming from Animal Kingdom? It isn't on the Skyliner, so plan on a bus or car. The dish I'd order again: [dish].\n\n#topolinosterrace #rivieraresort #disneydining #characterdining #disneyworld",
+    post: "Evergreen. Post it in late October."
+  },
+  {
+    id: "s10", day: "d3", must: false, when: "Mon 9/28 · Discovery Island",
+    title: "What's new (and closed) at Animal Kingdom", short: "Animal Kingdom: new and closed",
+    format: "Talking head + b-roll",
+    film: "Discovery Island mid-morning, with the Tree of Life behind you.",
+    hook: "What's new and what's closed at Animal Kingdom this fall",
+    takes: [
+      { k: "hook", say: "If Animal Kingdom is on your list this fall, here's what's new and what's closed." },
+      { say: "What's new: the Zootopia show, Better Zoogether, added a new scene in August. And Bluey's Wild World is open at Conservation Station." },
+      { say: "What's closed: DinoLand. It's walled off while they build Tropical Americas, which opens in 2027." },
+      { say: "So right now, Animal Kingdom is a morning park. We did Pandora and the safari by [time] and were at brunch by noon." },
+      { k: "cta", say: "Save this if Animal Kingdom is on your list." }
+    ],
+    broll: ["Zootopia: Better Zoogether entrance", "DinoLand construction walls", "Tree of Life", "Safari animals"],
+    caption: "Animal Kingdom, fall 2026. New: a new scene in Zootopia: Better Zoogether (added in August) and Bluey's Wild World at Conservation Station. Closed: DinoLand U.S.A., walled off for Tropical Americas, which opens in 2027. Our plan: Early Entry for Pandora, the safari close to 8 a.m. while the animals are active, and done by lunch.\n\n#animalkingdom #disneyworld #pandora #disneytips #disneynews",
+    post: "Post the week of Oct 11."
+  },
+  {
+    id: "s11", day: "d4", must: false, when: "Tue 9/29 · 8:30a and 10:30a",
+    title: "EPCOT Early Entry: the order we rode", short: "EPCOT Early Entry order",
+    format: "Talking head + wait-time proof",
+    film: "Takes 1–3 walking toward Spaceship Earth at 8:30. Takes 4–5 around 10:30 with the proof screenshot.",
+    hook: "The EPCOT Early Entry order that worked for us",
+    takes: [
+      { k: "hook", w: "8:30a · walking in", say: "EPCOT Early Entry just started. Here's the order we're riding, and why." },
+      { w: "8:30a", say: "Test Track or Frozen Ever After first. Frozen's Lightning Lane is usually gone by 11 a.m., so we ride it standby now." },
+      { w: "8:30a", say: "Then Remy's Ratatouille Adventure, while the lines are still short." },
+      { w: "Around 10:30a", say: "It's [time] now, and Frozen's wait is [wait] minutes. We rode it at [wait] minutes." },
+      { k: "cta", w: "Around 10:30a", say: "Guardians of the Galaxy is our Single Pass at noon, so we didn't rush it. Follow for the rest of the day." }
+    ],
+    broll: ["Walking toward Spaceship Earth in morning light", "Test Track or Frozen building", "Remy's Paris courtyard", "Both Frozen wait screenshots"],
+    caption: "EPCOT Early Entry order: Test Track or Frozen Ever After first (Frozen's Lightning Lane is usually gone by 11 a.m.), then Remy's Ratatouille Adventure, and Guardians of the Galaxy on a Single Pass at noon. Frozen at 8:30: [wait] minutes. Frozen at [time]: [wait] minutes.\n\n#epcot #earlyentry #ropedrop #disneytips #frozeneverafter",
+    post: "Post the week of Oct 11."
+  },
+  {
+    id: "s12", day: "d4", must: true, when: "Tue 9/29 · afternoon",
+    title: "Food & Wine on a Tuesday: how we do it", short: "Food & Wine game plan",
+    format: "Talking head + food b-roll",
+    film: "A shady spot in World Showcase, once you've tried a few booths.",
+    hook: "How a family of 5 does EPCOT Food & Wine",
+    takes: [
+      { k: "hook", say: "We're at the EPCOT Food & Wine Festival, and here's how a family of five does it without getting full at the second booth." },
+      { say: "Go on a weekday. Weekends fill up with locals, so a Tuesday is perfect." },
+      { say: "Start early. The booths open at 11 and get busiest in the evening." },
+      { say: "Split every plate. You'll taste twice as many booths before anyone's full. And bring a small tray, so one person can carry four plates." },
+      { say: "One more thing. The crowd level you see online tracks ride waits, not booth lines, so the festival can feel busier than the number says." },
+      { k: "cta", say: "Save this for your Food & Wine day." }
+    ],
+    broll: ["Booth fronts", "Menu boards", "Plates on your tray", "The family sharing a plate", "World Showcase pavilions"],
+    caption: "How we do EPCOT Food & Wine as a family of five: go on a weekday (weekends fill with locals), start when the booths open at 11, split every plate so you taste twice as many booths, and bring a small tray to carry it all. And remember that crowd levels track ride waits, not booth lines. Save this for your festival day.\n\n#epcotfoodandwine #epcot #disneyfood #disneytips #foodandwinefestival",
+    post: "Post Thursday morning. The festival is running now."
+  },
+  {
+    id: "s13", day: "d4", must: false, when: "Tue 9/29 · at each booth",
+    title: "Rating everything we ate at Food & Wine", short: "Food & Wine ratings",
+    format: "Quick cuts",
+    film: "At each booth: the plate, one bite, the family's score. Record takes 5–6 at the end of the day.",
+    hook: "Rating everything we ate at EPCOT Food & Wine",
+    takes: [
+      { k: "hook", say: "We tried [number] dishes at EPCOT Food & Wine. Here's every one, rated by the family." },
+      { w: "Booth 1", say: "[Dish] from [booth]. [Score] out of 10. [One-line reaction.]" },
+      { w: "Booth 2", say: "[Dish] from [booth]. [Score] out of 10." },
+      { w: "Booth 3", say: "[Dish] from [booth]. [Score] out of 10." },
+      { w: "End of the day", say: "The winner is [dish]. The one I'd skip is [dish]." },
+      { k: "cta", w: "End of the day", say: "Save this for your Food & Wine list." }
+    ],
+    broll: ["Every dish, overhead", "One bite per dish", "Menu boards for the names and prices"],
+    caption: "Every dish we tried at EPCOT Food & Wine, rated by a family of five. Winner: [dish] from [booth]. Skip: [dish]. The full list: [dish, score], [dish, score], [dish, score]. Save this for your festival list.\n\n#epcotfoodandwine #epcot #disneyfood #foodreview #disneyworld",
+    post: "Post the week of Oct 4."
+  },
+  {
+    id: "s14", day: "d5", must: true, when: "Wed 9/30 · 8:30a Early Entry",
+    title: "First look: Rock 'n' Roller Coaster Starring The Muppets", short: "Muppets coaster first look",
+    format: "Talking head + reactions",
+    film: "Takes 1–2 outside before you ride. Takes 3–5 as you walk out.",
+    hook: "First look: the new Muppets coaster at Hollywood Studios",
+    takes: [
+      { k: "hook", w: "Before riding", say: "This is the newest ride at Hollywood Studios, Rock 'n' Roller Coaster Starring The Muppets, and we came here first." },
+      { w: "Before riding", say: "The newest ride in any park builds the fastest line, so we used Early Entry to be here at 8:30." },
+      { w: "Walking out", say: "Okay. [Your first reaction, one sentence.]" },
+      { w: "Walking out", say: "Who it's for: [thrill level, who loved it, who'd sit out]. The line when we walked off was [wait] minutes." },
+      { k: "cta", w: "Walking out", say: "Questions about the Muppets coaster? Ask me in the comments." }
+    ],
+    broll: ["Marquee and building", "Queue theming", "Reactions walking out", "The 11:00 wait-time screenshot"],
+    caption: "First look at Rock 'n' Roller Coaster Starring The Muppets, the newest ride at Hollywood Studios. We went straight there at Early Entry, because the newest ride's line builds fastest. Our take: [reaction]. Who it's for: [who]. The wait when we walked off: [wait] minutes. Questions? Ask me below.\n\n#hollywoodstudios #rocknrollercoaster #muppets #disneyworld #disneynews",
+    post: "Post Thursday morning while it's new."
+  },
+  {
+    id: "s15", day: "d5", must: false, when: "Wed 9/30 · afternoon",
+    title: "Hollywood Studios Lightning Lanes: book these first", short: "Studios Lightning Lanes to book first",
+    format: "Talking head",
+    film: "Any shady spot, or the room if you head back midday. Tower of Terror behind you is a bonus.",
+    hook: "Book these Hollywood Studios Lightning Lanes first",
+    takes: [
+      { k: "hook", say: "If you're booking Lightning Lane Multi Pass for Hollywood Studios, these go first." },
+      { say: "Slinky Dog Dash, Tower of Terror and Toy Story Mania often sell out before the park even opens." },
+      { say: "Disney resort guests can book seven days before check-in, starting at 7 a.m., for the whole stay. Staying off-site, your window opens three days before your first ticket day." },
+      { say: "And use your Multi Pass on rides, not shows. Show slots rarely save you much." },
+      { k: "cta", say: "Want help with your Lightning Lane plan? Send me a message." }
+    ],
+    broll: ["Slinky Dog Dash overhead", "Tower of Terror", "Toy Story Mania entrance", "Screen recording of the Lightning Lane screen in the app"],
+    caption: "Booking Lightning Lane Multi Pass for Hollywood Studios? Slinky Dog Dash, Tower of Terror and Toy Story Mania often sell out before the park opens. Disney resort guests book 7 days before check-in at 7 a.m.; off-site guests get 3 days before their first ticket day. And save your picks for rides, not shows.\n\n#lightninglane #hollywoodstudios #disneytips #disneyplanning #disneytravelagent",
+    post: "Evergreen. Post it in November."
+  },
+  {
+    id: "s16", day: "d5", must: false, when: "Wed 9/30 · 10:30a",
+    title: "Mobile order at 10:30 (screen recording)", short: "Mobile-order tutorial",
+    format: "Screen recording + voiceover",
+    film: "Screen-record the order in the app. Record the voiceover later in the room.",
+    hook: "The mobile-order habit that skips the lunch rush",
+    takes: [
+      { k: "hook", say: "Lunch lines at Hollywood Studios build fast, so we mobile order at 10:30. Here's how." },
+      { say: "Pick the restaurant and your arrival window in the app." },
+      { say: "Build your order and pay while you're still in line for a ride." },
+      { say: "When you walk up, tap that you've arrived, and they start cooking." },
+      { k: "cta", say: "Save this for your park day." }
+    ],
+    broll: ["The screen recording", "Walking up to the restaurant", "The tray of food"],
+    caption: "How we skip the lunch rush: mobile order around 10:30 a.m. Pick the restaurant and arrival window, order and pay while you're in line, then tap that you've arrived when you walk up. Save this for your park day.\n\n#mobileorder #disneytips #hollywoodstudios #disneyfood #disneyplanning",
+    post: "Evergreen. Post it in November."
+  },
+  {
+    id: "s17", day: "d7", must: true, when: "Fri 10/2 · evening",
+    title: "One Halloween party or two?", short: "One party or two?",
+    format: "Talking head",
+    film: "Friday evening at the resort, with both party nights fresh.",
+    hook: "One Disney Halloween party or two? We did both.",
+    takes: [
+      { k: "hook", say: "We did two Mickey's Not-So-Scary Halloween Parties this week. Here's whether the second one was worth it." },
+      { say: "Night two was for everything we missed: [the meet or ride you got]." },
+      { say: "It was also the first night of the new 7:35 Hocus Pocus show, which runs through Halloween." },
+      { say: "My take for families: [one party or two, and who should do two]." },
+      { k: "cta", say: "Would you do one party or two? Tell me below." }
+    ],
+    broll: ["The 7:35 Hocus Pocus show", "The night-two character meet", "Fireworks from the new spot"],
+    caption: "One Not-So-Scary party or two? We did both. Night two was for everything we missed on night one: [what you got]. It was also the first night of the extra 7:35 p.m. Hocus Pocus Villain Spelltacular, which runs through Halloween. My take: [one or two, and who should do two]. Would you do one or two?\n\n#mnsshp #notsoscary #disneyhalloween #hocuspocus #magickingdom",
+    post: "Post the week of Oct 4."
+  },
+  {
+    id: "s18", day: "d6", must: true, when: "Thu 10/1 · 8:05p and 11:05p",
+    title: "Same parade, three hours apart", short: "Same parade, 3 hours apart",
+    format: "Side-by-side clips + voiceover",
+    film: "Same spot, same framing at 8:05p and 11:05p. Takes 3–4 are a voiceover you record Friday.",
+    hook: "Same parade. Same spot. 3 hours apart.",
+    takes: [
+      { k: "hook", w: "8:05p · your spot", say: "This is Main Street, ten minutes before the first party parade." },
+      { w: "11:05p · same spot", say: "Same spot, ten minutes before the second one." },
+      { w: "Voiceover, Friday", say: "Same parade, far fewer people. Ride during the 8:15 and watch the 11:15." },
+      { k: "cta", w: "Voiceover, Friday", say: "Save this for your party night." }
+    ],
+    broll: ["8:05p wide shot from your spot", "11:05p wide shot, same framing", "The Headless Horseman", "Favorite floats"],
+    caption: "Same parade. Same spot. Three hours apart. At Mickey's Not-So-Scary Halloween Party, the 11:15 p.m. Boo-to-You Parade is the same parade as the 8:15, with a much thinner crowd. Ride during the first one and watch the second.\n\n#mnsshp #disneyhalloween #magickingdom #disneytips #notsoscary",
+    post: "Post Friday night."
+  },
+  {
+    id: "s19", day: "d7", must: true, when: "Fri 10/2 · 7:00a and 10:00a",
+    title: "Main Street at 7 a.m. on a party day", short: "Main Street at 7 a.m.",
+    format: "Walking b-roll + voiceover",
+    film: "Takes 1–3 while walking Main Street at 7. Takes 4–5 around 10:00 with the wait screenshot.",
+    hook: "How to get Main Street almost to yourself",
+    takes: [
+      { k: "hook", w: "7:00a · walking", say: "This is Main Street at [time] a.m. Here's how you get this view." },
+      { w: "7:00a · walking", say: "Tap-in opens 30 minutes before Early Entry. Keep to the right side of Main Street for the Early Entry checkpoint." },
+      { w: "7:00a · walking", say: "During Early Entry, Fantasyland and Tomorrowland are running, so start with Seven Dwarfs Mine Train or Peter Pan's Flight." },
+      { w: "Around 10:00a", say: "And pick a party day. Magic Kingdom closes early for the party, and TouringPlans expects October party days to stay at a crowd level 4 or lower." },
+      { k: "cta", w: "Around 10:00a", say: "Follow for more of my rope-drop rules." }
+    ],
+    broll: ["Tap-in", "Main Street walk, low and slow", "The castle with no one in front", "Seven Dwarfs or Peter Pan building", "Both wait screenshots"],
+    caption: "Main Street at [time] a.m. How to get this view: tap-in opens 30 minutes before Early Entry, keep right on Main Street for the Early Entry checkpoint, and head to Fantasyland or Tomorrowland, the lands running during Early Entry. Bonus: pick a party day. Magic Kingdom closes early for the party, and TouringPlans forecasts October party days at crowd level 4 or lower.\n\n#magickingdom #ropedrop #earlyentry #disneytips #disneyworld",
+    post: "Post the week of Oct 11."
+  },
+  {
+    id: "s20", day: "d7", must: false, when: "Fri 10/2 · after TRON",
+    title: "Were our Lightning Lane Single Passes worth it?", short: "Single Pass: worth it?",
+    format: "Talking head + reaction clips",
+    film: "Right after TRON. Use Tuesday's Guardians reaction clip in the edit.",
+    hook: "Guardians and TRON Single Passes: were they worth it?",
+    takes: [
+      { k: "hook", say: "We bought two Lightning Lane Single Passes this trip, Guardians of the Galaxy at EPCOT and TRON here at Magic Kingdom. Were they worth it?" },
+      { say: "Single Pass is separate from Multi Pass. You buy it one ride at a time." },
+      { say: "Guardians at noon meant [what it saved you]. TRON meant [what it saved you]." },
+      { say: "My take: [worth it or skip, and for which families]." },
+      { k: "cta", say: "Want to know which ones are worth it for your family? Send me a message." }
+    ],
+    broll: ["Guardians reaction from Tuesday", "TRON canopy", "The Lightning Lane entrance", "TRON reaction"],
+    caption: "Two Lightning Lane Single Passes this trip: Guardians of the Galaxy: Cosmic Rewind at EPCOT and TRON Lightcycle / Run at Magic Kingdom. Single Pass is bought one ride at a time, separate from Multi Pass. My take: [verdict]. Send me a message if you'd like help deciding which are worth it for your family.\n\n#lightninglane #tron #guardiansofthegalaxy #disneytips #disneyplanning",
+    post: "Post it in late October."
+  },
+  {
+    id: "s21", day: "d7", must: false, when: "Fri 10/2 · Frontierland",
+    title: "Big Thunder is back, and more kids can ride", short: "Big Thunder's new height",
+    format: "Talking head + b-roll",
+    film: "In Frontierland with the mountain behind you.",
+    hook: "Big Thunder Mountain is back, with a lower height requirement",
+    takes: [
+      { k: "hook", say: "Big Thunder Mountain Railroad reopened in May, and the height requirement is lower now. 38 inches." },
+      { say: "That means more little ones can ride with their older siblings." },
+      { say: "It's also the first Magic Kingdom Lightning Lane to sell out, so book it first. Haunted Mansion is usually next." },
+      { k: "cta", say: "Save this if you have a little rider." }
+    ],
+    broll: ["The train rumbling past", "The height sign at the entrance", "Your family in line"],
+    caption: "Big Thunder Mountain Railroad reopened in May with a lower 38-inch height requirement, so more little riders can join in. It's the first Magic Kingdom Lightning Lane to go, so book it first. Haunted Mansion is usually next.\n\n#bigthundermountain #magickingdom #disneywithkids #disneytips #disneyworld",
+    post: "Post it in late October."
+  },
+  {
+    id: "s22", day: "d8", must: false, when: "Sat 10/3 · checkout",
+    title: "Checkout day: the Bell Services trick", short: "Checkout-day trick",
+    format: "Talking head",
+    film: "At Bell Services or beside the luggage cart.",
+    hook: "Checkout day doesn't have to end your Disney trip",
+    takes: [
+      { k: "hook", say: "It's checkout day, but the trip isn't over yet." },
+      { say: "Bell Services will hold your bags after checkout, so you can do one more park morning or one more swim." },
+      { say: "Pack the night before and drop the bags first thing. In October, Magic Kingdom gets busy on days without a party, so pick a different park." },
+      { k: "cta", say: "Save this for your last day." }
+    ],
+    broll: ["Bags on the bell cart", "The claim ticket with the number covered", "One last pool clip"],
+    caption: "Checkout-day tip: Bell Services will hold your bags after checkout, so you can squeeze in one more park morning or one more swim. Pack the night before, and in October skip Magic Kingdom on days without a party, when it's busiest.\n\n#disneytips #disneyworld #disneyresort #disneyplanning #disneytravelagent",
+    post: "Evergreen. Post it in November."
+  },
+  {
+    id: "s23", day: "d8", must: true, when: "Sat 10/3 · on the way home",
+    title: "Before you book this exact week", short: "This week, next year",
+    format: "Talking head",
+    film: "At a stop on the drive, parked. Or at home tonight.",
+    hook: "Thinking about late September at Disney? Watch this first.",
+    takes: [
+      { k: "hook", say: "We just spent the last week of September at Disney World. If you're thinking about this week next year, here's what I'd tell you." },
+      { say: "It's one of the quietest stretches of the year. And on Halloween party days, Magic Kingdom closes early, which keeps the daytime crowds down." },
+      { say: "You also get the Halloween parties and EPCOT Food & Wine at the same time." },
+      { say: "It is hurricane season, so plan for afternoon storms. If there's an official hurricane warning for Orlando, Disney waives change and cancel fees on rooms and packages." },
+      { say: "And book your Lightning Lanes the minute your window opens, seven days before check-in at 7 a.m." },
+      { k: "cta", say: "If you want this week next year, send me a message. I'll plan it for you." }
+    ],
+    broll: ["The best clip from each day", "Storm clouds or rain jackets, if you got any", "Party and Food & Wine highlights"],
+    caption: "Thinking about late September or early October at Walt Disney World? It's one of the quietest stretches of the year, the Halloween parties and EPCOT Food & Wine overlap, and Magic Kingdom's early party-day closings keep daytime crowds down. Plan for afternoon storms, know Disney's hurricane policy, and book Lightning Lanes the moment your window opens. Want this week next year? Send me a message.\n\n#disneyworld #disneyplanning #disneytravelagent #fallatdisney #waltdisneyworld",
+    post: "Post in November, and again in January when families plan fall trips."
+  },
+  {
+    id: "s24", day: "d8", must: false, when: "Sat 10/3 · at home",
+    title: "Our week at Disney World in 30 seconds", short: "Week in 30 seconds",
+    format: "Voiceover montage",
+    film: "Pick the best 2 seconds from each day. Record the voiceover at home.",
+    hook: "8 days. 2 Halloween parties. 4 parks.",
+    takes: [
+      { k: "hook", say: "Eight days, two Halloween parties and four parks. Here's our week in thirty seconds." },
+      { say: "Best moment: [moment]." },
+      { say: "Best bite: [dish]." },
+      { say: "Best ride: [ride]. And the one thing I'd change: [change]." },
+      { k: "cta", say: "Want a week like this? I'd love to plan it. Send me a message." }
+    ],
+    broll: ["The best 2 seconds from every day"],
+    caption: "Eight days, two Halloween parties, four parks. Best moment: [moment]. Best bite: [dish]. Best ride: [ride]. What I'd change: [change]. Want a week like this? I'd love to plan it for you.\n\n#disneyworld #disneyvacation #waltdisneyworld #disneytravelagent #disneyfamily",
+    post: "Post Sunday 10/4."
+  }
+];
+
+var KIT = {
+  how: [
+    ["Tap a circle to check it off.", "It saves on this phone right away, even with no signal, and backs up to this page when you're online."],
+    ["Script rows open the full script.", "Take mode shows one take at a time in big type. Read it, record it, tap Got it."],
+    ["Highlighted words are yours to fill in.", "They're the numbers and opinions only you'll know on the day."]
+  ],
+  filming: [
+    ["Hold every shot for 5 seconds.", "Count it. Anything shorter is hard to use in an edit."],
+    ["Wide, medium, close.", "At each spot, film where you are, what's happening, and one detail. That's a complete scene."],
+    ["One move at a time.", "Walk, pan or tilt, and slower than feels natural."],
+    ["Lock the exposure for skies and fireworks.", "Press and hold on the subject until AE/AF LOCK appears, then slide the sun icon down."],
+    ["Use the zoom buttons.", "Tap 2x or higher instead of pinching. Pinch zoom gets soft fast."],
+    ["Talking heads: face the light.", "Phone at eye level, mic on. Start recording 2 seconds before you speak."],
+    ["Record voiceovers in the room.", "At night, in the quiet. A closet full of clothes works like a sound booth."],
+    ["Clean the lens.", "Every morning, and every time sunscreen goes on."]
+  ],
+  rules: [
+    ["Tripods: yes, if compact.", "It has to fit inside a standard backpack and extend less than 6 ft."],
+    ["Selfie sticks: no.", "Hand-held extension poles aren't allowed in the parks either."],
+    ["Coasters: phone away.", "Film the queue, the building and the reaction instead."],
+    ["Keep walkways clear.", "Set the tripod up out of walkways and parade routes."]
+  ],
+  privacy: [
+    ["Crop screenshots.", "Names, confirmation numbers, and any ticket or party barcode."],
+    ["Cover claim tickets.", "Bell Services tickets and luggage tags."],
+    ["Keep home private.", "No house number or street in travel-day clips."]
+  ],
+  playbook: "Here's my party-night playbook for Mickey's Not-So-Scary Halloween Party:\n\n1. Eat before 4 p.m., or grab quick service right away. Trick-or-treat lines are shortest early.\n2. Your party ticket gets you in at 4 p.m. Pick up your wristband and map at the main gate. Already in the park on a day ticket? Tortuga Tavern in Adventureland and Fantasy Faire have the shortest wristband lines.\n3. There are no Lightning Lanes during the party, so everything is standby.\n4. Ride while everyone else watches: 7 to 9:30 p.m., and again after the fireworks.\n5. The second parade is the same parade with a much thinner crowd.\n6. Costumes are welcome. Check Disney's costume guidelines before you pack.\n7. Allergy-friendly treats: look for the teal token at the trick-or-treat stops and trade it in at the marked locations.\n\nShowtimes change, so check the My Disney Experience app on party day. If you'd like help planning your party night, I'd love to help.\n\nLynne\nHappily Ever Planned",
+  ctas: [
+    "Follow along this week. I'll show you what worked and what I'd skip.",
+    "Save this for your trip.",
+    "Send me a message if you'd like help planning yours.",
+    "Comment PARTY and I'll send you my full party-night playbook.",
+    "Want this week next year? Send me a message. I'll plan it for you."
+  ],
+  tags: [
+    ["Party", "#mnsshp #notsoscary #disneyhalloween #magickingdom #halloweenatdisney"],
+    ["EPCOT", "#epcot #epcotfoodandwine #foodandwinefestival #disneyfood #worldshowcase"],
+    ["Hollywood Studios", "#hollywoodstudios #galaxysedge #toystoryland #muppets #disneyparks"],
+    ["Animal Kingdom", "#animalkingdom #pandora #kilimanjarosafaris #treeoflife #disneyworld"],
+    ["Magic Kingdom", "#magickingdom #ropedrop #earlyentry #cinderellacastle #disneyworld"],
+    ["Planning", "#disneyplanning #disneytips #disneytravelagent #disneyvacation #waltdisneyworld"]
+  ]
+};
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+var curly = function (s) { return String(s).replace(/'/g, "’"); };
+var esc = function (s) {
+  return curly(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+};
+var fill = function (s) { return esc(s).replace(/\[([^\]]+)\]/g, '<mark class="fill">$1</mark>'); };
+var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function svg(inner, sw) {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 2) + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + "</svg>";
+}
+var I = {
+  video: svg('<path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/>'),
+  photo: svg('<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/>'),
+  story: svg('<circle cx="12" cy="12" r="9" stroke-dasharray="4 2.6"/><path d="M12 8.5v7M8.5 12h7"/>'),
+  screen: svg('<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>'),
+  script: svg('<path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9M12.4 3.4l3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>'),
+  post: svg('<path d="M14.5 21.7a.5.5 0 0 0 .9-.1l6.5-19a.5.5 0 0 0-.6-.6l-19 6.5a.5.5 0 0 0-.1.9l7.9 3.2a2 2 0 0 1 1.1 1.1z"/><path d="M21.9 2.1 11 13"/>'),
+  task: svg('<rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'),
+  check: svg('<path d="M20 6 9 17l-5-5"/>', 3),
+  chev: svg('<path d="m9 18 6-6-6-6"/>'),
+  back: svg('<path d="m15 18-6-6 6-6"/>'),
+  x: svg('<path d="M18 6 6 18M6 6l12 12"/>'),
+  copy: svg('<rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>'),
+  play: svg('<path d="M7 4.5v15l12-7.5z"/>'),
+  eye: svg('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="M4 4l16 16"/>'),
+  days: svg('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>'),
+  kit: svg('<path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M8 11h8M8 15h8"/>')
+};
+var g = function (inner) { return '<svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + "</svg>"; };
+var GLYPH = {
+  prep: g('<path d="m3.5 7 2 2 3.5-3.5M3.5 16l2 2 3.5-3.5M12.5 7.5h8M12.5 16.5h8"/>'),
+  travel: g('<path d="M3.4 7.6h17.2v10.8a1.8 1.8 0 0 1-1.8 1.8H5.2a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M9 7.6V5.4A1.4 1.4 0 0 1 10.4 4h3.2A1.4 1.4 0 0 1 15 5.4v2.2M3.4 12.2h17.2"/>'),
+  party: g('<path d="M19.4 14.7A7.6 7.6 0 0 1 9.3 4.6a7.6 7.6 0 1 0 10.1 10.1Z"/><path d="M16.8 3.6v3.2M15.2 5.2h3.2"/>'),
+  ak: g('<path d="M12 21v-5.2M12 15.8c-3.6 0-6.3-2.5-6.3-5.9C5.7 6.6 8.5 3.8 12 3.8s6.3 2.8 6.3 6.1c0 3.4-2.7 5.9-6.3 5.9Z"/><path d="M12 15.8 9.2 12.6M12 13.4l2.6-2.8"/>'),
+  ep: g('<circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.4" ry="8"/><path d="M4.3 12h15.4M5.6 7.5h12.8M5.6 16.5h12.8"/>'),
+  hs: g('<path d="M3.6 9.3 19.7 5.6l.7 3.3L4.3 12.6Z"/><path d="M4.6 12.4h14.8v7.2a1.4 1.4 0 0 1-1.4 1.4H6a1.4 1.4 0 0 1-1.4-1.4Z"/><path d="m8.4 8.6-1.3-3M13 7.6l-1.3-3M17.6 6.5l-1.3-3"/>'),
+  mk: g('<path d="M4 20.5V12l3.4-2.4L10.8 12v1.7h2.4V12l3.4-2.4L20 12v8.5ZM11 20.5V16h2v4.5M7.4 9.6V4.2l2.2 1.6-2.2 1.6M16.6 9.6V4.2l-2.2 1.6 2.2 1.6"/>'),
+  after: g('<path d="M14.5 21.7a.5.5 0 0 0 .9-.1l6.5-19a.5.5 0 0 0-.6-.6l-19 6.5a.5.5 0 0 0-.1.9l7.9 3.2a2 2 0 0 1 1.1 1.1z"/><path d="M21.9 2.1 11 13"/>')
+};
+
+var TYPE = {
+  script: { label: "Script", icon: I.script },
+  shot: { label: "Video", icon: I.video },
+  photo: { label: "Photo", icon: I.photo },
+  story: { label: "Story", icon: I.story },
+  screen: { label: "Screen", icon: I.screen },
+  post: { label: "Post", icon: I.post },
+  task: { label: "To do", icon: I.task }
+};
+var TYPE_ORDER = ["script", "shot", "photo", "story", "screen", "post", "task"];
+var STATUS = ["To film", "Filmed", "Edited", "Posted"];
+
+var DMAP = {}, SMAP = {}, ITEM = {};
+DAYS.forEach(function (d) {
+  DMAP[d.id] = d;
+  d.moments.forEach(function (m) { m.items.forEach(function (it) { ITEM[it.id] = it; }); });
+});
+SCRIPTS.forEach(function (s) { SMAP[s.id] = s; });
+
+function todayISO() { var t = new Date(); return t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate()); }
+function defaultDay(iso) {
+  if (iso <= DAYS[0].date) return DAYS[0].id;
+  if (iso >= DMAP.after.date) return "after";
+  for (var i = 0; i < DAYS.length; i++) if (DAYS[i].date === iso) return DAYS[i].id;
+  return DAYS[0].id;
+}
+function mmss(s) { return Math.floor(s / 60) + ":" + pad(s % 60); }
+function timing(s) {
+  var t = 0;
+  return s.takes.map(function (tk) {
+    var words = tk.say.replace(/\[[^\]]*\]/g, "xx xx").split(/\s+/).filter(Boolean).length;
+    var d = Math.max(2, Math.round(words / 2.6));
+    var r = [t, t + d]; t += d; return r;
+  });
+}
+function rangeLabel(list, total) {
+  if (list.length === total && total > 1) return "All " + total + " takes";
+  if (list.length === 1) return "Take " + list[0];
+  var run = list.every(function (n, i) { return i === 0 || n === list[i - 1] + 1; });
+  return "Takes " + (run ? list[0] + "–" + list[list.length - 1] : list.join(", "));
+}
+
+/* =====================================================================
+   SAVING: this phone first, then the page's own database when online
+   ===================================================================== */
+
+var LS_KEY = "hef-progress-v1", UI_KEY = "hef-ui-v1";
+var S = {};
+try {
+  var raw = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
+  if (raw && typeof raw === "object" && !Array.isArray(raw)) {
+    Object.keys(raw).forEach(function (k) {
+      var e = raw[k];
+      if (Array.isArray(e) && e.length === 2 && isFinite(Number(e[0])) && isFinite(Number(e[1]))) S[k] = [Number(e[0]), Number(e[1])];
+    });
+  }
+} catch (e) {}
+var UI = {};
+try {
+  var rawUI = JSON.parse(localStorage.getItem(UI_KEY) || "{}");
+  if (rawUI && typeof rawUI === "object") UI = rawUI;
+} catch (e) {}
+function saveUI() { try { localStorage.setItem(UI_KEY, JSON.stringify(UI)); } catch (e) {} }
+function persist() { try { localStorage.setItem(LS_KEY, JSON.stringify(S)); } catch (e) {} }
+
+function v(k) { var e = S[k]; return Array.isArray(e) ? (Number(e[0]) || 0) : 0; }
+var dirty = {};
+function dirtyCount() { return Object.keys(dirty).length; }
+function put(k, val) { S[k] = [val, Date.now()]; dirty[k] = 1; persist(); queueSync(); }
+
+var ref = null, remoteExists = false, inflight = false, syncTimer = 0, backoff = 0, subTries = 0;
+var SYNC_LABEL = { local: "Saved on phone", saving: "Backing up", synced: "Backed up", offline: "Saved on phone" };
+function setSync(state) {
+  var el = $("#sync");
+  el.dataset.state = state;
+  $("#sync-t").textContent = SYNC_LABEL[state];
+  el.setAttribute("aria-label", state === "synced" ? "Checkmarks backed up" : state === "saving" ? "Backing up checkmarks" : "Checkmarks saved on this phone");
+  var k = $("#kit-sync");
+  if (k) k.textContent = syncSentence();
+}
+function syncSentence() {
+  var st = $("#sync").dataset.state;
+  if (st === "synced") return "Backed up. Your checkmarks are safe on this phone and on this page, so they show up on your laptop too.";
+  if (st === "saving") return "Backing up now.";
+  if (st === "offline") return "No connection right now. Everything is saved on this phone and will back up when you have signal.";
+  return "Your checkmarks are saved on this phone.";
+}
+function queueSync(ms) {
+  if (!ref) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(flush, ms == null ? 1200 : ms);
+  setSync("saving");
+}
+function withTimeout(p, ms) {
+  return new Promise(function (res, rej) {
+    var t = setTimeout(function () { rej({ code: "timeout" }); }, ms);
+    p.then(function (x) { clearTimeout(t); res(x); }, function (err) { clearTimeout(t); rej(err); });
+  });
+}
+function flush() {
+  if (!ref || inflight) return;
+  var keys = Object.keys(dirty);
+  if (!keys.length) { setSync("synced"); return; }
+  inflight = true;
+  dirty = {};
+  var items = {};
+  keys.forEach(function (k) { if (S[k]) items[k] = S[k]; });
+  var write;
+  try { write = remoteExists ? ref.update({ items: items }) : ref.set({ items: JSON.parse(JSON.stringify(S)) }); }
+  catch (e) { write = Promise.reject(e); }
+  withTimeout(write, 20000).then(function () {
+    remoteExists = true;
+    backoff = 0;
+    inflight = false;
+    if (dirtyCount()) queueSync(600); else setSync("synced");
+  }, function (err) {
+    inflight = false;
+    keys.forEach(function (k) { dirty[k] = 1; });
+    var code = err && err.code;
+    if (code === "invalid_argument" && remoteExists) { remoteExists = false; queueSync(300); return; }
+    if (["invalid_argument", "revoked", "not_granted", "capability_disabled", "capability_removed", "quota_exceeded"].indexOf(code) > -1) {
+      ref = null; setSync("local"); return;
+    }
+    backoff = Math.min(60000, backoff ? backoff * 2 : 5000);
+    setSync("offline");
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(flush, backoff);
+  });
+}
+function mergeRemote(items) {
+  var changed = false;
+  Object.keys(items).forEach(function (k) {
+    var r = items[k];
+    if (!/^[its]:[a-z0-9:-]{1,40}$/.test(k) || !Array.isArray(r) || r.length < 2) return;
+    var val = Number(r[0]), t = Number(r[1]);
+    if (!isFinite(val) || !isFinite(t) || val < 0 || val > 3) return;
+    var l = S[k];
+    if (!l || t > Number(l[1])) { S[k] = [val, t]; changed = true; delete dirty[k]; }
+  });
+  Object.keys(S).forEach(function (k) {
+    var r = items[k];
+    if (!Array.isArray(r) || Number(S[k][1]) > Number(r[1])) dirty[k] = 1;
+  });
+  return changed;
+}
+function subscribe() {
+  if (!ref) return;
+  ref.onSnapshot(function (snap) {
+    remoteExists = !!snap.exists;
+    var body = snap.exists ? snap.data() : null;
+    var items = body && body.items && typeof body.items === "object" ? body.items : {};
+    if (mergeRemote(items)) { persist(); refreshAll(); }
+    if (dirtyCount()) queueSync(800);
+    else if (!inflight) setSync("synced");
+  }, function (err) {
+    if (err && (err.code === "revoked" || err.code === "not_granted")) { ref = null; setSync("local"); return; }
+    setSync("offline");
+    if (subTries++ < 3) setTimeout(subscribe, 30000);
+  });
+}
+function initSync() {
+  var c = window.claude;
+  if (!c || typeof c.use !== "function") { setSync("local"); return; }
+  c.use("db").then(function (db) {
+    if (!db) { setSync("local"); return; }
+    try { ref = db.doc("progress/lynne"); } catch (e) { ref = null; setSync("local"); return; }
+    setSync("saving");
+    subscribe();
+  }, function () { setSync("local"); });
+}
+window.addEventListener("online", function () { if (ref && dirtyCount()) queueSync(400); });
+
+/* =====================================================================
+   PROGRESS
+   ===================================================================== */
+
+function takesDone(sid, list) { return list.filter(function (n) { return v("t:" + sid + ":" + n); }).length; }
+function allTakes(sid) { return SMAP[sid].takes.map(function (_, i) { return i + 1; }); }
+function scriptStatus(sid) {
+  var stored = v("s:" + sid);
+  var filmed = takesDone(sid, allTakes(sid)) === SMAP[sid].takes.length ? 1 : 0;
+  return Math.max(stored, filmed);
+}
+function itemDone(it) {
+  if (it.type === "script") return takesDone(it.ref, it.takes) === it.takes.length;
+  if (it.type === "post") return scriptStatus(it.ref) >= 3;
+  return !!v("i:" + it.id);
+}
+function dayItems(d) { return d.moments.reduce(function (a, m) { return a.concat(m.items); }, []); }
+function dayProg(d) {
+  var its = dayItems(d);
+  return { done: its.filter(itemDone).length, total: its.length };
+}
+function itemLabel(it) {
+  if (it.type === "script") { var s = SMAP[it.ref]; return "Film " + s.id.toUpperCase() + " · " + s.short + " (" + rangeLabel(it.takes, s.takes.length).toLowerCase() + ")"; }
+  if (it.type === "post") return it.text || "Post “" + SMAP[it.ref].short + "”";
+  return it.text;
+}
+function nowMoment(d) {
+  if (d.date !== todayISO()) return -1;
+  var n = new Date(), mins = n.getHours() * 60 + n.getMinutes(), idx = -1;
+  d.moments.forEach(function (m, i) {
+    if (!m.at) return;
+    var p = m.at.split(":");
+    if (Number(p[0]) * 60 + Number(p[1]) <= mins) idx = i;
+  });
+  return idx;
+}
+function nextUp(d) {
+  var start = Math.max(0, nowMoment(d));
+  for (var j = 0; j < d.moments.length; j++) {
+    var m = d.moments[(start + j) % d.moments.length];
+    for (var k = 0; k < m.items.length; k++) if (!itemDone(m.items[k])) return m.items[k];
+  }
+  return null;
+}
+
+/* =====================================================================
+   RENDER: rail, day, scripts, kit
+   ===================================================================== */
+
+function renderRail() {
+  var today = todayISO();
+  $("#rail").innerHTML = '<span class="glow" id="glow" aria-hidden="true"></span>' + DAYS.map(function (d) {
+    var isToday = d.date === today || (d.id === "after" && today > DMAP.d8.date);
+    return '<button type="button" class="chip' + (isToday ? " is-today" : "") + '" data-act="day" data-day="' + d.id + '" data-park="' + d.park + '" aria-current="' + (d.id === UI.day) + '">' +
+      GLYPH[d.park] +
+      '<span class="chip-top">' + esc(d.dow) + "</span>" +
+      '<span class="chip-bot">' + esc(d.md) + "</span>" +
+      '<span class="chip-bar"><i></i></span></button>';
+  }).join("");
+}
+function placeGlow(scroll) {
+  var rail = $("#rail"), chip = $('.chip[data-day="' + UI.day + '"]', rail), glow = $("#glow");
+  if (!chip || !glow) return;
+  glow.style.transform = "translateX(" + (chip.offsetLeft + (chip.offsetWidth - 26) / 2) + "px)";
+  glow.style.setProperty("--gp", "var(--" + DMAP[UI.day].park + ")");
+  if (scroll !== false) {
+    var left = chip.offsetLeft - (rail.clientWidth - chip.offsetWidth) / 2;
+    try { rail.scrollTo({ left: left, behavior: reduced ? "auto" : "smooth" }); } catch (e) { rail.scrollLeft = left; }
+  }
+}
+
+function itemHTML(it) {
+  var T = TYPE[it.type];
+  var note = it.note ? '<span class="it-note">' + esc(it.note) + "</span>" : "";
+  if (it.type === "script") {
+    var s = SMAP[it.ref], rng = rangeLabel(it.takes, s.takes.length);
+    return '<li class="it it-script" data-type="script" data-item="' + it.id + '">' +
+      '<button type="button" class="it-tick" data-act="takes" data-id="' + it.id + '" aria-pressed="false" aria-label="Mark ' + esc(rng.toLowerCase()) + " of " + esc(s.short) + ' recorded"><span class="tick">' + I.check + "</span></button>" +
+      '<button type="button" class="it-open" data-act="open" data-script="' + s.id + '" data-id="' + it.id + '">' +
+        '<span class="it-body"><span class="it-kind">' + T.icon + "Script · " + s.id.toUpperCase() + (s.must ? '<span class="must">Must</span>' : "") + "</span>" +
+        '<span class="it-text">' + esc(s.short) + "</span>" +
+        '<span class="it-note">' + esc(rng) + (it.note ? " · " + esc(it.note) : "") + "</span></span>" +
+        '<span class="it-meta"><span data-tc="' + it.id + '"></span>' + I.chev + "</span>" +
+      "</button></li>";
+  }
+  if (it.type === "post") {
+    var sp = SMAP[it.ref];
+    return '<li class="it" data-type="post" data-item="' + it.id + '">' +
+      '<button type="button" class="it-main" data-act="post" data-id="' + it.id + '" aria-pressed="false"><span class="tick">' + I.check + "</span>" +
+      '<span class="it-body"><span class="it-kind">' + T.icon + "Post · " + sp.id.toUpperCase() + "</span>" +
+      '<span class="it-text">' + esc(itemLabel(it)) + "</span>" + note + "</span></button>" +
+      '<button type="button" class="it-go" data-act="open" data-script="' + sp.id + '">Script</button></li>';
+  }
+  return '<li class="it" data-type="' + it.type + '" data-item="' + it.id + '">' +
+    '<button type="button" class="it-main" data-act="toggle" data-id="' + it.id + '" aria-pressed="false"><span class="tick">' + I.check + "</span>" +
+    '<span class="it-body"><span class="it-kind">' + T.icon + T.label + "</span>" +
+    '<span class="it-text">' + esc(it.text) + "</span>" + note + "</span></button>" +
+    (it.go ? '<button type="button" class="it-go" data-act="day" data-day="' + it.go + '">Open ' + esc(DMAP[it.go].dow) + "</button>" : "") +
+    "</li>";
+}
+
+function renderDay() {
+  var d = DMAP[UI.day], view = $("#view-days"), nowIdx = nowMoment(d);
+  var counts = {};
+  dayItems(d).forEach(function (it) { counts[it.type] = (counts[it.type] || 0) + 1; });
+  if (UI.filter && !counts[UI.filter]) UI.filter = null;
+  view.dataset.park = d.park;
+  view.innerHTML =
+    '<article class="hero" data-park="' + d.park + '">' +
+      '<span class="hero-mark" aria-hidden="true">' + GLYPH[d.park] + "</span>" +
+      '<p class="hero-eye">' + esc(d.eyebrow) + "</p>" +
+      '<h1 class="hero-title">' + esc(d.title) + "</h1>" +
+      '<div class="hero-facts">' + d.facts.map(function (f) { return '<span class="fact"><b>' + esc(f[0]) + "</b>" + esc(f[1]) + "</span>"; }).join("") + "</div>" +
+      '<div class="hero-meter"><p class="hero-num"><span id="day-num"></span><span id="day-pct"></span></p><span class="meter"><i id="day-bar"></i></span></div>' +
+    "</article>" +
+    '<p class="focus">' + esc(d.focus) + "</p>" +
+    (UI.hint ? "" : '<div class="hint" id="hint"><p><b>How it works.</b> Tap a circle to check it off. Script rows open the words, and Take mode shows one take at a time in big type. Everything saves on this phone, even with no signal.</p><button type="button" class="icon-btn" data-act="hint" aria-label="Dismiss tip">' + I.x + "</button></div>") +
+    '<button type="button" class="next" id="next" data-act="next"></button>' +
+    '<div class="fbar" role="toolbar" aria-label="Show">' +
+      '<button type="button" class="fchip" data-act="hide" aria-pressed="' + !!UI.hideDone + '">' + I.eye + "Hide done</button>" +
+      TYPE_ORDER.filter(function (t) { return counts[t]; }).map(function (t) {
+        return '<button type="button" class="fchip" data-act="filter" data-type="' + t + '" aria-pressed="' + (UI.filter === t) + '">' + TYPE[t].icon + TYPE[t].label + '<span class="n" data-count="' + t + '"></span></button>';
+      }).join("") +
+    "</div>" +
+    '<ol class="timeline" id="timeline"' + (UI.filter ? ' data-filter="' + UI.filter + '"' : "") + ">" +
+      d.moments.map(function (m, i) {
+        return '<li class="mo' + (i === nowIdx ? " is-now" : "") + '" data-mo="' + i + '">' +
+          '<div class="mo-head"><span class="mo-time">' + esc(m.time) + '</span><h2 class="mo-title">' + esc(m.title) + "</h2>" +
+          (i === nowIdx ? '<span class="now">Now</span>' : "") + '<span class="mo-count"></span></div>' +
+          '<ul class="items">' + m.items.map(itemHTML).join("") + "</ul>" +
+          '<p class="mo-allset">All done here.</p></li>';
+      }).join("") +
+    "</ol>";
+  view.classList.toggle("hide-done", !!UI.hideDone);
+  lastNow = d.id + ":" + nowIdx;
+  refresh();
+}
+
+function refresh() {
+  var d = DMAP[UI.day];
+  $$("#view-days [data-item]").forEach(function (li) {
+    var it = ITEM[li.dataset.item], done = itemDone(it);
+    li.classList.toggle("is-done", done);
+    var b = li.querySelector("[aria-pressed]");
+    if (b) b.setAttribute("aria-pressed", String(done));
+    if (it.type === "script") {
+      var c = li.querySelector("[data-tc]");
+      if (c) c.textContent = takesDone(it.ref, it.takes) + "/" + it.takes.length;
+    }
+  });
+  var tl = $("#timeline");
+  $$("#view-days .mo").forEach(function (mo) {
+    var m = d.moments[Number(mo.dataset.mo)];
+    var done = m.items.filter(itemDone).length;
+    mo.classList.toggle("is-done", done === m.items.length);
+    mo.querySelector(".mo-count").textContent = done + "/" + m.items.length;
+    var f = tl && tl.dataset.filter;
+    mo.classList.toggle("is-filtered", !!f && !m.items.some(function (it) { return it.type === f; }));
+  });
+  var p = dayProg(d), pct = p.total ? Math.round(p.done / p.total * 100) : 0;
+  if ($("#day-num")) {
+    $("#day-num").innerHTML = "<b>" + p.done + "</b> of " + p.total + " done";
+    $("#day-pct").textContent = pct + "%";
+    $("#day-bar").style.width = pct + "%";
+  }
+  $$("#view-days [data-count]").forEach(function (el) {
+    var t = el.dataset.count, list = dayItems(d).filter(function (it) { return it.type === t; });
+    el.textContent = list.filter(itemDone).length + "/" + list.length;
+  });
+  var nx = $("#next");
+  if (nx) {
+    var it = nextUp(d);
+    nx.classList.toggle("is-clear", !it);
+    nx.disabled = !it;
+    nx.innerHTML = it
+      ? '<span class="next-k">Next up</span><span class="next-t">' + esc(itemLabel(it)) + "</span>" + I.chev
+      : '<span class="next-k">All clear</span><span class="next-t">Every box is checked for ' + esc(d.nm) + ".</span>";
+    nx.dataset.target = it ? it.id : "";
+  }
+  $$("#rail .chip").forEach(function (chip) {
+    var dd = DMAP[chip.dataset.day], pp = dayProg(dd);
+    chip.querySelector(".chip-bar i").style.width = (pp.total ? pp.done / pp.total * 100 : 0) + "%";
+    chip.setAttribute("aria-label", dd.eyebrow + ", " + dd.title + ", " + pp.done + " of " + pp.total + " done");
+  });
+}
+function refreshAll() {
+  refresh();
+  if (UI.tab === "scripts") renderScripts();
+  if (sheetFor) patchSheet();
+  if (tm && !$("#tm").hidden) renderTM();
+}
+
+function renderScripts() {
+  var f = UI.sf || "all";
+  var st = {};
+  SCRIPTS.forEach(function (s) { st[s.id] = scriptStatus(s.id); });
+  var count = function (fn) { return SCRIPTS.filter(fn).length; };
+  var match = function (s) {
+    var x = st[s.id];
+    return f === "all" || (f === "must" && s.must) || (f === "tofilm" && x === 0) || (f === "topost" && (x === 1 || x === 2)) || (f === "posted" && x === 3);
+  };
+  var filters = [["all", "All", SCRIPTS.length], ["must", "Must film", count(function (s) { return s.must; })], ["tofilm", "To film", count(function (s) { return st[s.id] === 0; })], ["topost", "To post", count(function (s) { return st[s.id] === 1 || st[s.id] === 2; })], ["posted", "Posted", count(function (s) { return st[s.id] === 3; })]];
+  var groups = DAYS.map(function (d) { return { d: d, list: SCRIPTS.filter(function (s) { return s.day === d.id && match(s); }) }; }).filter(function (gr) { return gr.list.length; });
+  $("#view-scripts").innerHTML =
+    '<h1 class="page-title">Scripts</h1>' +
+    '<p class="page-sub">' + SCRIPTS.length + " short videos, " + count(function (s) { return s.must; }) + " marked must-film. Each one is broken into takes you can record one at a time.</p>" +
+    '<div class="stats">' +
+      '<div class="stat"><p class="stat-l">Filmed</p><p class="stat-v">' + count(function (s) { return st[s.id] >= 1; }) + " <small>of " + SCRIPTS.length + "</small></p></div>" +
+      '<div class="stat"><p class="stat-l">Edited</p><p class="stat-v">' + count(function (s) { return st[s.id] >= 2; }) + " <small>of " + SCRIPTS.length + "</small></p></div>" +
+      '<div class="stat"><p class="stat-l">Posted</p><p class="stat-v">' + count(function (s) { return st[s.id] >= 3; }) + " <small>of " + SCRIPTS.length + "</small></p></div>" +
+    "</div>" +
+    '<div class="sfbar"><div class="fbar" role="toolbar" aria-label="Filter scripts">' + filters.map(function (x) {
+      return '<button type="button" class="fchip" data-act="sf" data-f="' + x[0] + '" aria-pressed="' + (f === x[0]) + '">' + x[1] + '<span class="n">' + x[2] + "</span></button>";
+    }).join("") + "</div></div>" +
+    (groups.length ? groups.map(function (gr) {
+      return '<h2 class="sv-day" data-park="' + gr.d.park + '">' + GLYPH[gr.d.park] + esc(gr.d.dow + " " + gr.d.md + " · " + gr.d.title) + "</h2>" +
+        gr.list.map(function (s) {
+          var x = st[s.id], tmg = timing(s), done = takesDone(s.id, allTakes(s.id));
+          return '<button type="button" class="sc" data-act="open" data-script="' + s.id + '" data-park="' + gr.d.park + '">' +
+            '<span class="sc-top"><span class="slate">' + s.id.toUpperCase() + "</span>" + (s.must ? '<span class="must">Must</span>' : "") +
+            '<span class="sc-status' + (x === 3 ? " is-posted" : "") + '">' + STATUS[x] + "</span></span>" +
+            '<span class="sc-title">' + esc(s.title) + "</span>" +
+            '<span class="sc-hook">“' + fill(s.takes[0].say) + "”</span>" +
+            '<span class="sc-foot"><span>' + esc(s.format) + " · " + mmss(tmg[tmg.length - 1][1]) + " · " + done + "/" + s.takes.length + " takes</span>" +
+            '<span class="sc-meter" aria-hidden="true"><i class="' + (x >= 1 ? "on" : "") + '"></i><i class="' + (x >= 2 ? "on" : "") + '"></i><i class="' + (x >= 3 ? "on" : "") + '"></i></span></span>' +
+          "</button>";
+        }).join("");
+    }).join("") : '<p class="empty">Nothing here yet. Try another filter.</p>');
+}
+
+var KIT_COPY = [];
+function renderKit() {
+  KIT_COPY = [];
+  var tips = function (rows) { return '<div class="tips">' + rows.map(function (r) { return '<div class="tip"><b>' + esc(r[0]) + "</b><span>" + esc(r[1]) + "</span></div>"; }).join("") + "</div>"; };
+  var reg = function (text) { return KIT_COPY.push(text) - 1; };
+  var pb = reg(KIT.playbook);
+  $("#view-kit").innerHTML =
+    '<h1 class="page-title">Kit</h1>' +
+    '<p class="page-sub">How to use this page, filming tips, park rules for your gear, and text ready to paste.</p>' +
+    '<section class="kit-sec"><h2 class="kit-h">How it works</h2>' + tips(KIT.how) + '<p class="kit-note" id="kit-sync" style="margin-top:10px">' + esc(syncSentence()) + "</p></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Display</h2><p class="kit-note">Light reads best in bright sun. Dark is easier on your eyes on party nights.</p>' +
+      '<div class="steps three" role="radiogroup" aria-label="Display">' + [["auto", "Match phone"], ["light", "Light"], ["dark", "Dark"]].map(function (o) {
+        return '<button type="button" role="radio" class="step" data-act="theme-set" data-v="' + o[0] + '" aria-checked="' + ((UI.theme || "auto") === o[0]) + '">' + o[1] + "</button>";
+      }).join("") + "</div></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Party playbook, ready to paste</h2><p class="kit-note">For everyone who comments PARTY. It’s the playbook from your itinerary, written as a message.</p>' +
+      '<div class="copybox"><p class="copy-text" id="kc-' + pb + '">' + esc(KIT.playbook) + '</p><button type="button" class="copy-btn" data-act="copy" data-copy="kit:' + pb + '" data-el="kc-' + pb + '">' + I.copy + "Copy playbook</button></div></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Calls to action</h2><div class="tips">' + KIT.ctas.map(function (c) {
+      var i = reg(c);
+      return '<div class="copy-row"><p class="copy-text" id="kc-' + i + '">' + esc(c) + '</p><button type="button" class="copy-btn" data-act="copy" data-copy="kit:' + i + '" data-el="kc-' + i + '" aria-label="Copy this call to action">' + I.copy + "</button></div>";
+    }).join("") + "</div></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Hashtag sets</h2><div class="tips">' + KIT.tags.map(function (t) {
+      var i = reg(t[1]);
+      return '<div class="copy-row"><p class="copy-text" id="kc-' + i + '"><small>' + esc(t[0]) + "</small>" + esc(t[1]) + '</p><button type="button" class="copy-btn" data-act="copy" data-copy="kit:' + i + '" data-el="kc-' + i + '" aria-label="Copy ' + esc(t[0]) + ' hashtags">' + I.copy + "</button></div>";
+    }).join("") + "</div></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Filming tips</h2>' + tips(KIT.filming) + "</section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Park rules for your gear</h2>' + tips(KIT.rules) + '<p class="kit-note" style="margin-top:10px">From <a href="https://disneyworld.disney.go.com/park-rules/" target="_blank" rel="noopener">Disney’s property rules</a>.</p></section>' +
+    '<section class="kit-sec"><h2 class="kit-h">Before you post</h2>' + tips(KIT.privacy) + "</section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Start over</h2><p class="kit-note">Clears every checkmark and script status, on this phone and in the backup.</p><button type="button" class="reset" data-act="reset" id="reset">Clear all checkmarks</button></section>' +
+    '<p class="kit-foot">Happily Ever Planned · Lynne Mashburn · A Travelmation Agency</p>';
+}
+
+/* =====================================================================
+   SCRIPT SHEET
+   ===================================================================== */
+
+var sheetFor = null, sheetFocus = [], sheetOpener = null, lastNow = "";
+function openSheet(sid, focus, opener) {
+  sheetFor = sid;
+  sheetFocus = focus || [];
+  sheetOpener = opener || null;
+  renderSheet();
+  var sh = $("#sheet"), sc = $("#scrim");
+  sh.hidden = false; sc.hidden = false;
+  void sh.offsetHeight;
+  sh.classList.add("is-open"); sc.classList.add("is-open");
+  $("#app").inert = true;
+  document.documentElement.classList.add("lock");
+  setTimeout(function () {
+    var t = $("#sh-title"); if (t) t.focus({ preventScroll: true });
+    var fl = $(".take.is-focus", sh); if (fl) fl.scrollIntoView({ block: "center" });
+  }, 80);
+}
+function closeSheet() {
+  if (!sheetFor) return;
+  var sh = $("#sheet"), sc = $("#scrim");
+  sh.style.transform = "";
+  sh.classList.remove("is-open"); sc.classList.remove("is-open");
+  $("#app").inert = false;
+  document.documentElement.classList.remove("lock");
+  sheetFor = null;
+  setTimeout(function () { if (!sheetFor) { sh.hidden = true; sc.hidden = true; } }, reduced ? 0 : 400);
+  if (sheetOpener && sheetOpener.isConnected) sheetOpener.focus({ preventScroll: true });
+  refreshAll();
+}
+function renderSheet() {
+  var s = SMAP[sheetFor], d = DMAP[s.day], tmg = timing(s), x = scriptStatus(s.id);
+  var sh = $("#sheet");
+  sh.dataset.park = d.park;
+  sh.innerHTML =
+    '<div class="sh-grab" data-drag><span></span></div>' +
+    '<header class="sh-head" data-drag>' +
+      '<p class="sh-eye"><span class="slate">' + s.id.toUpperCase() + "</span><span>" + esc(s.when) + "</span>" + (s.must ? '<span class="must">Must</span>' : "") + "</p>" +
+      '<h2 class="sh-title" id="sh-title" tabindex="-1">' + esc(s.title) + "</h2>" +
+      '<button type="button" class="icon-btn sh-x" data-act="close" aria-label="Close script">' + I.x + "</button>" +
+    "</header>" +
+    '<div class="sh-scroll" id="sh-scroll">' +
+      '<p class="sh-meta"><span>' + esc(s.format) + "</span><span>About " + mmss(tmg[tmg.length - 1][1]) + "</span><span>Vertical 9:16</span></p>" +
+      '<p class="sh-film"><b>Where and when</b>' + esc(s.film) + "</p>" +
+      '<div class="steps" role="radiogroup" aria-label="Status">' + STATUS.map(function (l, i) {
+        return '<button type="button" role="radio" class="step' + (x >= i ? " is-on" : "") + '" aria-checked="' + (x === i) + '" data-act="status" data-v="' + i + '">' + l + "</button>";
+      }).join("") + "</div>" +
+      '<h3 class="sh-h">Takes <span id="sh-count"></span></h3>' +
+      '<ol class="takes">' + s.takes.map(function (t, i) {
+        var n = i + 1, done = v("t:" + s.id + ":" + n);
+        var lab = ["Take " + n, t.k === "hook" ? "Hook" : t.k === "cta" ? "Call to action" : "", mmss(tmg[i][0]) + "–" + mmss(tmg[i][1])].filter(Boolean).join(" · ");
+        return '<li class="take' + (done ? " is-done" : "") + (sheetFocus.indexOf(n) > -1 ? " is-focus" : "") + '" data-n="' + n + '">' +
+          '<button type="button" class="take-btn" data-act="take" data-n="' + n + '" aria-pressed="' + !!done + '"><span class="tick">' + I.check + "</span>" +
+          '<span class="take-body"><span class="take-label">' + lab + "</span>" + (t.w ? '<span class="take-when">' + esc(t.w) + "</span>" : "") +
+          '<span class="take-say">' + fill(t.say) + "</span></span></button></li>";
+      }).join("") + "</ol>" +
+      '<h3 class="sh-h">On-screen text</h3>' +
+      '<div class="copybox"><p class="copy-text" id="cp-hook">' + fill(s.hook) + '</p><button type="button" class="copy-btn" data-act="copy" data-copy="hook:' + s.id + '" data-el="cp-hook">' + I.copy + "Copy text</button></div>" +
+      '<h3 class="sh-h">Caption</h3>' +
+      '<div class="copybox"><p class="copy-text" id="cp-cap">' + fill(s.caption) + '</p><button type="button" class="copy-btn" data-act="copy" data-copy="cap:' + s.id + '" data-el="cp-cap">' + I.copy + "Copy caption</button></div>" +
+      '<h3 class="sh-h">B-roll to grab</h3>' +
+      '<ul class="broll">' + s.broll.map(function (b) { return "<li>" + esc(b) + "</li>"; }).join("") + "</ul>" +
+      '<h3 class="sh-h">When to post</h3>' +
+      '<p class="sh-post">' + esc(s.post) + "</p>" +
+    "</div>" +
+    '<footer class="sh-foot">' +
+      '<button type="button" class="btn" data-act="copy" data-copy="cap:' + s.id + '" data-el="cp-cap">' + I.copy + "Caption</button>" +
+      '<button type="button" class="btn btn-primary" data-act="tm">' + I.play + "Take mode</button>" +
+    "</footer>";
+  patchSheet();
+}
+function patchSheet() {
+  if (!sheetFor) return;
+  var s = SMAP[sheetFor], x = scriptStatus(s.id), sh = $("#sheet");
+  $$(".take", sh).forEach(function (li) {
+    var done = !!v("t:" + s.id + ":" + li.dataset.n);
+    li.classList.toggle("is-done", done);
+    li.querySelector(".take-btn").setAttribute("aria-pressed", String(done));
+  });
+  $$(".step", sh).forEach(function (b, i) {
+    b.classList.toggle("is-on", x >= i);
+    b.setAttribute("aria-checked", String(x === i));
+  });
+  var c = $("#sh-count");
+  if (c) c.textContent = takesDone(s.id, allTakes(s.id)) + "/" + s.takes.length + " recorded";
+}
+
+/* drag the sheet down to close it */
+(function () {
+  var sh = $("#sheet"), drag = null;
+  sh.addEventListener("pointerdown", function (e) {
+    if (!e.target.closest("[data-drag]") || e.target.closest("button")) return;
+    drag = { y: e.clientY, t: Date.now(), dy: 0, id: e.pointerId };
+    sh.classList.add("is-dragging");
+    try { sh.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  sh.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    drag.dy = Math.max(0, e.clientY - drag.y);
+    sh.style.transform = "translateY(" + drag.dy + "px)";
+  });
+  var end = function () {
+    if (!drag) return;
+    var speed = drag.dy / Math.max(1, Date.now() - drag.t);
+    sh.classList.remove("is-dragging");
+    if (drag.dy > 110 || (drag.dy > 30 && speed > .6)) closeSheet();
+    else sh.style.transform = "";
+    drag = null;
+  };
+  sh.addEventListener("pointerup", end);
+  sh.addEventListener("pointercancel", end);
+})();
+
+/* =====================================================================
+   TAKE MODE: one take at a time, big type, screen stays awake
+   ===================================================================== */
+
+var tm = null, wake = null;
+function lockWake() {
+  try {
+    if (navigator.wakeLock && navigator.wakeLock.request) {
+      navigator.wakeLock.request("screen").then(function (w) { wake = w; }, function () { wake = null; });
+    }
+  } catch (e) { wake = null; }
+}
+function releaseWake() { try { if (wake) wake.release(); } catch (e) {} wake = null; }
+function openTM() {
+  var s = SMAP[sheetFor];
+  var firstFocus = sheetFocus.filter(function (n) { return !v("t:" + s.id + ":" + n); })[0];
+  var firstOpen = allTakes(s.id).filter(function (n) { return !v("t:" + s.id + ":" + n); })[0];
+  tm = { sid: s.id, i: (firstFocus || firstOpen || 1) - 1, end: false, dir: "" };
+  var el = $("#tm");
+  el.dataset.park = DMAP[s.day].park;
+  el.hidden = false;
+  $("#sheet").inert = true;
+  renderTM();
+  lockWake();
+  var c = $("#tm-close"); if (c) c.focus({ preventScroll: true });
+}
+function closeTM() {
+  $("#tm").hidden = true;
+  $("#sheet").inert = false;
+  releaseWake();
+  tm = null;
+  patchSheet();
+  refresh();
+  var b = $('#sheet [data-act="tm"]'); if (b) b.focus({ preventScroll: true });
+}
+function renderTM() {
+  var s = SMAP[tm.sid], el = $("#tm"), tmg = timing(s), total = s.takes.length;
+  var head = '<header class="tm-head"><p class="tm-slate"><span class="slate">' + s.id.toUpperCase() + "</span>" +
+    (tm.end ? "That’s a wrap" : "Take " + (tm.i + 1) + " of " + total) + "</p>" +
+    '<button type="button" class="icon-btn" id="tm-close" data-act="tm-close" aria-label="Close take mode">' + I.x + "</button></header>" +
+    '<p class="tm-name" id="tm-title">' + esc(s.short) + "</p>";
+  var dots = '<div class="tm-dots" aria-hidden="true">' + s.takes.map(function (_, i) {
+    return '<span class="' + (v("t:" + s.id + ":" + (i + 1)) ? "on" : "") + (!tm.end && i === tm.i ? " cur" : "") + '"></span>';
+  }).join("") + "</div>";
+  if (tm.end) {
+    var got = takesDone(s.id, allTakes(s.id));
+    el.innerHTML = head +
+      '<div class="tm-stage"><article class="tm-card slide-l"><p class="tm-role">' + got + " of " + total + " takes recorded</p>" +
+      '<p class="tm-say">' + (got === total ? "All of " + s.id.toUpperCase() + " is in the can." : "Almost there. The skipped takes are still open in the script.") + "</p>" +
+      '<p class="tm-when">' + (got === total ? "It’s marked Filmed. Edit it tonight or at rest time." : "Tap Start over to record them now.") + "</p></article></div>" +
+      dots +
+      '<footer class="tm-foot two"><button type="button" class="btn" data-act="tm-restart">Start over</button><button type="button" class="btn btn-primary" data-act="tm-close">' + I.check + "Done</button></footer>";
+    return;
+  }
+  var t = s.takes[tm.i], n = tm.i + 1, done = !!v("t:" + s.id + ":" + n);
+  var role = [t.k === "hook" ? "Hook" : t.k === "cta" ? "Call to action" : "Take " + n, mmss(tmg[tm.i][0]) + "–" + mmss(tmg[tm.i][1])].join(" · ");
+  el.innerHTML = head +
+    '<div class="tm-stage" id="tm-stage"><article class="tm-card' + (tm.dir ? " slide-" + tm.dir : "") + '">' +
+      '<p class="tm-role">' + role + "</p>" +
+      '<p class="tm-say">' + fill(t.say) + "</p>" +
+      (t.w ? '<p class="tm-when">' + esc(t.w) + "</p>" : "") +
+      (done ? '<p class="tm-got">' + I.check + "Recorded</p>" : "") +
+    "</article></div>" +
+    dots +
+    '<footer class="tm-foot">' +
+      '<button type="button" class="btn" data-act="tm-prev"' + (tm.i === 0 ? " disabled" : "") + ">" + I.back + "Back</button>" +
+      '<button type="button" class="btn btn-primary" data-act="tm-done">' + I.check + (done ? "Next" : "Got it") + "</button>" +
+      '<button type="button" class="btn" data-act="tm-next">Skip' + I.chev + "</button>" +
+    "</footer>";
+}
+function tmMove(step) {
+  var total = SMAP[tm.sid].takes.length;
+  if (step > 0 && tm.i >= total - 1) { tm.end = true; tm.dir = "l"; renderTM(); return; }
+  tm.i = Math.max(0, Math.min(total - 1, tm.i + step));
+  tm.dir = step > 0 ? "l" : "r";
+  renderTM();
+}
+function tmDone() {
+  var k = "t:" + tm.sid + ":" + (tm.i + 1);
+  if (!v(k)) { put(k, 1); buzz(); }
+  tmMove(1);
+}
+(function () {
+  var start = null;
+  $("#tm").addEventListener("pointerdown", function (e) {
+    if (!e.target.closest(".tm-stage") || !tm || tm.end) return;
+    start = { x: e.clientX, y: e.clientY };
+  });
+  $("#tm").addEventListener("pointerup", function (e) {
+    if (!start || !tm) return;
+    var dx = e.clientX - start.x, dy = e.clientY - start.y;
+    start = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) tmMove(dx < 0 ? 1 : -1);
+  });
+  $("#tm").addEventListener("pointercancel", function () { start = null; });
+})();
+
+/* =====================================================================
+   ACTIONS
+   ===================================================================== */
+
+function buzz() { try { if (navigator.vibrate) navigator.vibrate(8); } catch (e) {} }
+var toastTimer = 0;
+function toast(msg) {
+  var t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("is-on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { t.classList.remove("is-on"); }, 2400);
+}
+
+function withCelebration(fn, li) {
+  var d = DMAP[UI.day], before = dayProg(d);
+  var turnedOn = fn();
+  if (li && turnedOn) {
+    li.classList.add("just");
+    setTimeout(function () { li.classList.remove("just"); }, 900);
+  }
+  if (turnedOn) buzz();
+  refresh();
+  var after = dayProg(d);
+  if (after.total && after.done === after.total && before.done < before.total) {
+    toast("Every box checked for " + d.nm + ".");
+    if (!reduced) confetti();
+  }
+}
+function toggleItem(id, btn) {
+  withCelebration(function () { var k = "i:" + id, nv = v(k) ? 0 : 1; put(k, nv); return !!nv; }, btn.closest(".it"));
+}
+function toggleTakes(id, btn) {
+  var it = ITEM[id];
+  withCelebration(function () {
+    var all = takesDone(it.ref, it.takes) === it.takes.length;
+    it.takes.forEach(function (n) { put("t:" + it.ref + ":" + n, all ? 0 : 1); });
+    return !all;
+  }, btn.closest(".it"));
+}
+function togglePost(id, btn) {
+  var it = ITEM[id];
+  withCelebration(function () {
+    var posted = scriptStatus(it.ref) >= 3;
+    put("s:" + it.ref, posted ? 2 : 3);
+    return !posted;
+  }, btn.closest(".it"));
+}
+function toggleTake(n) {
+  var sid = sheetFor, k = "t:" + sid + ":" + n, li = $('.take[data-n="' + n + '"]', $("#sheet"));
+  withCelebration(function () { var nv = v(k) ? 0 : 1; put(k, nv); return !!nv; }, li);
+  patchSheet();
+}
+function setStatus(val) {
+  var sid = sheetFor;
+  if (val === 0 && takesDone(sid, allTakes(sid)) === SMAP[sid].takes.length) {
+    toast("Uncheck a take to move this back to To film.");
+    return;
+  }
+  withCelebration(function () { put("s:" + sid, val); return false; });
+  patchSheet();
+}
+
+function copySource(key) {
+  var p = key.split(":");
+  if (p[0] === "cap") return curly(SMAP[p[1]].caption);
+  if (p[0] === "hook") return curly(SMAP[p[1]].hook);
+  if (p[0] === "kit") return curly(KIT_COPY[Number(p[1])] || "");
+  return "";
+}
+function copy(key, btn) {
+  var text = copySource(key);
+  var elId = btn.dataset.el;
+  var fallback = function () {
+    var el = elId && document.getElementById(elId);
+    if (el) {
+      try {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      } catch (e) {}
+    }
+    toast("Text selected. Use your phone’s Copy.");
+  };
+  try {
+    navigator.clipboard.writeText(text).then(function () { toast(key.indexOf("cap:") === 0 ? "Caption copied" : "Copied"); }, fallback);
+  } catch (e) { fallback(); }
+}
+
+function selectDay(id) {
+  if (!DMAP[id]) return;
+  UI.day = id; UI.filter = null; saveUI();
+  $$("#rail .chip").forEach(function (c) { c.setAttribute("aria-current", String(c.dataset.day === id)); });
+  if (UI.tab !== "days") setTab("days");
+  else renderDay();
+  placeGlow();
+  window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+}
+var TABS = ["days", "scripts", "kit"];
+function setTab(tab) {
+  if (TABS.indexOf(tab) < 0) tab = "days";
+  UI.tab = tab; saveUI();
+  document.body.dataset.tab = tab;
+  TABS.forEach(function (t) {
+    $("#view-" + t).hidden = t !== tab;
+    $("#tab-" + t).setAttribute("aria-current", t === tab ? "page" : "false");
+  });
+  $("#tab-pill").style.setProperty("--i", TABS.indexOf(tab));
+  if (tab === "days") { renderDay(); placeGlow(); }
+  if (tab === "scripts") renderScripts();
+  if (tab === "kit") renderKit();
+  window.scrollTo(0, 0);
+}
+function goNext() {
+  var id = $("#next").dataset.target;
+  if (!id) return;
+  if (UI.filter) { UI.filter = null; saveUI(); renderDay(); }
+  var li = $('#view-days [data-item="' + id + '"]');
+  if (!li) return;
+  li.scrollIntoView({ block: "center", behavior: reduced ? "auto" : "smooth" });
+  li.classList.remove("flash"); void li.offsetWidth; li.classList.add("flash");
+}
+function applyTheme() {
+  var t = UI.theme || "auto", root = document.documentElement;
+  if (t === "auto") { if (hostTheme) root.setAttribute("data-theme", hostTheme); else root.removeAttribute("data-theme"); }
+  else root.setAttribute("data-theme", t);
+  $$('[data-act="theme-set"]').forEach(function (b) { b.setAttribute("aria-checked", String(b.dataset.v === t)); });
+}
+var hostTheme = document.documentElement.getAttribute("data-theme");
+var resetArmed = 0;
+function reset(btn) {
+  if (Date.now() - resetArmed > 4000) {
+    resetArmed = Date.now();
+    btn.classList.add("is-armed");
+    btn.textContent = "Tap again to clear everything";
+    setTimeout(function () { if (btn.isConnected && Date.now() - resetArmed >= 4000) { btn.classList.remove("is-armed"); btn.textContent = "Clear all checkmarks"; } }, 4100);
+    return;
+  }
+  resetArmed = 0;
+  var now = Date.now();
+  Object.keys(S).forEach(function (k) { S[k] = [0, now]; dirty[k] = 1; });
+  persist(); queueSync(300);
+  refresh(); renderKit();
+  toast("All checkmarks cleared.");
+}
+
+document.addEventListener("click", function (e) {
+  var b = e.target.closest("[data-act]");
+  if (!b || b.disabled) return;
+  var a = b.dataset.act;
+  if (a === "tab") setTab(b.dataset.tab);
+  else if (a === "day") selectDay(b.dataset.day);
+  else if (a === "toggle") toggleItem(b.dataset.id, b);
+  else if (a === "takes") toggleTakes(b.dataset.id, b);
+  else if (a === "post") togglePost(b.dataset.id, b);
+  else if (a === "open") { var it = ITEM[b.dataset.id]; openSheet(b.dataset.script, it && it.type === "script" ? it.takes : [], b); }
+  else if (a === "close") closeSheet();
+  else if (a === "take") toggleTake(Number(b.dataset.n));
+  else if (a === "status") setStatus(Number(b.dataset.v));
+  else if (a === "copy") copy(b.dataset.copy, b);
+  else if (a === "tm") openTM();
+  else if (a === "tm-close") closeTM();
+  else if (a === "tm-prev") tmMove(-1);
+  else if (a === "tm-next") tmMove(1);
+  else if (a === "tm-done") tmDone();
+  else if (a === "tm-restart") { tm.i = 0; tm.end = false; tm.dir = "r"; renderTM(); }
+  else if (a === "hide") { UI.hideDone = !UI.hideDone; saveUI(); $("#view-days").classList.toggle("hide-done", UI.hideDone); b.setAttribute("aria-pressed", String(UI.hideDone)); }
+  else if (a === "filter") {
+    UI.filter = UI.filter === b.dataset.type ? null : b.dataset.type; saveUI();
+    var tl = $("#timeline");
+    if (UI.filter) tl.dataset.filter = UI.filter; else delete tl.dataset.filter;
+    $$('#view-days [data-act="filter"]').forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.type === UI.filter)); });
+    refresh();
+  }
+  else if (a === "next") goNext();
+  else if (a === "hint") { UI.hint = 1; saveUI(); var h = $("#hint"); if (h) h.remove(); }
+  else if (a === "sf") { UI.sf = b.dataset.f; saveUI(); renderScripts(); }
+  else if (a === "theme-set") { UI.theme = b.dataset.v; saveUI(); applyTheme(); }
+  else if (a === "reset") reset(b);
+});
+document.addEventListener("keydown", function (e) {
+  if (tm && !$("#tm").hidden) {
+    if (e.key === "Escape") closeTM();
+    else if (e.key === "ArrowRight") tmMove(1);
+    else if (e.key === "ArrowLeft") tmMove(-1);
+    return;
+  }
+  if (e.key === "Escape" && sheetFor) closeSheet();
+});
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState !== "visible") return;
+  if (tm && !$("#tm").hidden) lockWake();
+  if (ref && dirtyCount()) queueSync(400);
+  tick();
+});
+
+/* =====================================================================
+   CONFETTI (only when a whole day is checked off)
+   ===================================================================== */
+
+function confetti() {
+  var c = $("#confetti"), ctx = c.getContext && c.getContext("2d");
+  if (!ctx) return;
+  var dpr = Math.min(2, window.devicePixelRatio || 1), W = window.innerWidth, H = window.innerHeight;
+  c.width = W * dpr; c.height = H * dpr; c.hidden = false;
+  var cs = getComputedStyle(document.documentElement);
+  var cols = ["--mk", "--ep", "--hs", "--ak", "--party", "--rec"].map(function (k) { return cs.getPropertyValue(k).trim() || "#1D6CC0"; });
+  var P = [];
+  for (var i = 0; i < 90; i++) {
+    P.push({ x: W / 2 + (Math.random() - .5) * 90, y: H * .38, vx: (Math.random() - .5) * 10, vy: -Math.random() * 10 - 3, r: Math.random() * 6 + 5, a: Math.random() * 6.28, va: (Math.random() - .5) * .3, c: cols[i % cols.length] });
+  }
+  var t0 = performance.now();
+  (function frame(t) {
+    var el = t - t0;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    P.forEach(function (p) {
+      p.vy += .26; p.x += p.vx; p.y += p.vy; p.a += p.va;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a);
+      ctx.globalAlpha = Math.max(0, 1 - el / 1700);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2);
+      ctx.restore();
+    });
+    if (el < 1700) requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, W, H); c.hidden = true; }
+  })(t0);
+}
+
+/* =====================================================================
+   START
+   ===================================================================== */
+
+function tick() {
+  var today = todayISO();
+  if (UI.lastDate !== today) {
+    UI.lastDate = today; UI.day = defaultDay(today); saveUI();
+    renderRail();
+    if (UI.tab === "days") renderDay();
+    placeGlow();
+    return;
+  }
+  if (UI.tab === "days") {
+    var d = DMAP[UI.day];
+    if (d.id + ":" + nowMoment(d) !== lastNow) renderDay();
+  }
+}
+
+$("#tab-days").innerHTML = I.days + "<span>Days</span>";
+$("#tab-scripts").innerHTML = I.script + "<span>Scripts</span>";
+$("#tab-kit").innerHTML = I.kit + "<span>Kit</span>";
+
+var today = todayISO();
+if (UI.lastDate !== today || !DMAP[UI.day]) { UI.day = defaultDay(today); UI.lastDate = today; }
+var hash = (location.hash || "").slice(1);
+if (DMAP[hash]) { UI.day = hash; UI.tab = "days"; }
+else if (TABS.indexOf(hash) > -1) UI.tab = hash;
+saveUI();
+
+applyTheme();
+renderRail();
+setTab(UI.tab || "days");
+if (SMAP[hash]) openSheet(hash, []);
+initSync();
+setInterval(tick, 60000);
+window.addEventListener("resize", function () { placeGlow(false); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placeGlow(false); });
+})();
+</script>
