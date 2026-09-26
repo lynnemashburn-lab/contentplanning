@@ -661,8 +661,8 @@ var DAYS = [
   {
     id: "d1", date: "2026-09-26", dow: "Sat", md: "9/26", nm: "Saturday", park: "travel",
     eyebrow: "Day 1 · Saturday, Sept 26", title: "Arrival Day",
-    facts: [["Travel", "Driving down"], ["Tonight", "Pool or Disney Springs"]],
-    focus: "Keep today light. Film the drive, a first look at the resort, and one arrival-day tip.",
+    facts: [["Travel", "Driving down"], ["Home base", "Treehouse Villas"]],
+    focus: "Keep today light. Film the drive, the Treehouse tour, and one arrival-day tip.",
     moments: [
       { time: "Morning", at: "07:00", title: "On the road", items: [
         { id: "d1-load", type: "shot", text: "Loading the car, 5 seconds", note: "Doors open, bags going in. This opens your trip recap." },
@@ -672,16 +672,17 @@ var DAYS = [
       ]},
       { time: "Afternoon", at: "13:00", title: "Arrival", items: [
         { id: "d1-text", type: "screen", text: "Screenshot the room-ready text", note: "Crop out your name and confirmation number." },
-        { id: "d1-sign", type: "shot", text: "Resort sign or entrance, 5 seconds" },
-        { id: "d1-s03", type: "script", ref: "s03", takes: [1, 2, 3] },
-        { id: "d1-walk", type: "shot", text: "One slow walk from the door to the window", note: "Phone at chest height, no stopping. This becomes the room tour." },
-        { id: "d1-groc", type: "shot", text: "Groceries: the pickup and the stocked fridge", note: "Two clips for the arrival-day tip video." },
-        { id: "d1-fam", type: "photo", text: "Family photo at the resort entrance", note: "Everyone in it. Use the tripod or ask a cast member." }
+        { id: "d1-sign", type: "shot", text: "The drive in through the trees, or the Treehouse Villas sign, 5 seconds" },
+        { id: "d1-walk", type: "shot", text: "One slow walk: up to the villa, through the door, out to the deck", note: "Phone at chest height, no stopping, before the bags land. This is the backbone of the Treehouse tour." },
+        { id: "d1-s03", type: "script", ref: "s03", takes: [1, 2, 3, 4, 5] },
+        { id: "d1-detail", type: "shot", text: "Treehouse details up close: an animation-art nod, the bunk room, the kitchen", note: "The 2026 redesign hides nods to Tangled, Mulan, The Rescuers and more. If your villa has the new look, lead with it." },
+        { id: "d1-groc", type: "shot", text: "Groceries going into the Treehouse kitchen", note: "Two clips for the arrival-day tip video." },
+        { id: "d1-fam", type: "photo", text: "Family photo on the Treehouse stairs or deck", note: "Everyone in it. Use the tripod." }
       ]},
       { time: "Evening", at: "17:30", title: "Easy first night", items: [
         { id: "d1-s02", type: "script", ref: "s02", takes: [1, 2, 3, 4, 5] },
-        { id: "d1-eve", type: "shot", text: "Three clips from the pool, dinner or Disney Springs" },
-        { id: "d1-made", type: "story", text: "Story: “We made it”", note: "One clip. Start a Fall 2026 highlight with it." },
+        { id: "d1-eve", type: "shot", text: "Three clips from the Treehouse pool, dinner or Disney Springs", note: "Boats to Disney Springs leave from the main Saratoga Springs dock." },
+        { id: "d1-made", type: "story", text: "Story: “We made it. Home this week is a Treehouse.”", note: "One clip. Start a Fall 2026 highlight with it." },
         { id: "d1-post", type: "post", ref: "s01" }
       ]},
       wrap("d1", [{ id: "d1-shirts", type: "task", text: "Lay out everyone's Halloween shirts for tomorrow" }])
@@ -694,12 +695,13 @@ var DAYS = [
     focus: "Your biggest content night. Ride during the first parade, screenshot the proof, and watch the 11:15.",
     moments: [
       { time: "Morning", at: "09:00", title: "Slow morning at the resort", items: [
+        { id: "d2-post03", type: "post", ref: "s03", note: "The reimagined villas are brand new, so this one is timely." },
         { id: "d2-s04", type: "script", ref: "s04", takes: [1, 2, 3, 4, 5] },
-        { id: "d2-pool", type: "shot", text: "Pool clips: three shots of the kids swimming", note: "From behind or at a distance is fine." },
+        { id: "d2-pool", type: "shot", text: "Treehouse pool clips: three shots of the kids swimming", note: "The Treehouses have their own quiet pool. From behind or at a distance is fine." },
         { id: "d2-q", type: "story", text: "Story question: “Party tonight. What can't we miss?”", note: "Use the question sticker. The answers are next year's video." }
       ]},
       { time: "3:00p", at: "15:00", title: "Getting ready", items: [
-        { id: "d2-shirts", type: "shot", text: "Everyone in Halloween shirts walking past the camera", note: "Tripod at hip height, and everyone walks by it." },
+        { id: "d2-shirts", type: "shot", text: "Everyone in Halloween shirts coming down the Treehouse stairs", note: "Tripod at the bottom, and everyone walks past it." },
         { id: "d2-famphoto", type: "photo", text: "Family photo in your Halloween shirts" }
       ]},
       { time: "4:00p", at: "16:00", title: "Main Gate", items: [
@@ -741,13 +743,13 @@ var DAYS = [
   {
     id: "d3", date: "2026-09-28", dow: "Mon", md: "9/28", nm: "Monday", park: "ak",
     eyebrow: "Day 3 · Monday, Sept 28", title: "Animal Kingdom",
-    facts: [["Bus stop", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["Topolino's", "11:50a"]],
-    focus: "Film your rope-drop rule at the bus stop. Pandora's wait times prove it by 10:30.",
+    facts: [["Head out", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["Topolino's", "11:50a"]],
+    focus: "Film your rope-drop rule as you head out at 6. Pandora's wait times prove it by 10:30.",
     moments: [
-      { time: "6:00a", at: "06:00", title: "Bus stop", items: [
+      { time: "6:00a", at: "06:00", title: "Heading out", items: [
         { id: "d3-s08a", type: "script", ref: "s08", takes: [1, 2] },
-        { id: "d3-stop", type: "shot", text: "The empty bus stop in the dark, then the bus pulling up" },
-        { id: "d3-story", type: "story", text: "Story: “6 a.m. at the bus stop. You'll see why.”" }
+        { id: "d3-stop", type: "shot", text: "Leaving in the dark: the Treehouse shuttle stop, or the van pulling out", note: "Park buses don't stop at the Treehouses. The shuttle connects to them at the main resort, so driving is usually faster." },
+        { id: "d3-story", type: "story", text: "Story: “6 a.m. and we're heading out. You'll see why.”" }
       ]},
       { time: "7:30a", at: "07:30", title: "Early Entry: Pandora", items: [
         { id: "d3-pandora", type: "shot", text: "Walking into Pandora at first light", note: "The floating mountains, 10 seconds, slow walk." },
@@ -789,12 +791,12 @@ var DAYS = [
   {
     id: "d4", date: "2026-09-29", dow: "Tue", md: "9/29", nm: "Tuesday", park: "ep",
     eyebrow: "Day 4 · Tuesday, Sept 29", title: "EPCOT",
-    facts: [["Bus stop", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["Guardians", "~12:00p"]],
+    facts: [["Head out", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["Guardians", "~12:00p"]],
     focus: "Rope-drop proof in the morning, then Food & Wine content all afternoon.",
     moments: [
-      { time: "7:00a", at: "07:00", title: "Bus stop", items: [
-        { id: "d4-sunrise", type: "shot", text: "Bus stop at sunrise, 5 seconds", note: "Stock footage for every rope-drop video you make this year." },
-        { id: "d4-story", type: "story", text: "Story: “EPCOT day. Bus at 7 for 8:30 Early Entry.”" }
+      { time: "7:00a", at: "07:00", title: "Heading out", items: [
+        { id: "d4-sunrise", type: "shot", text: "Sunrise through the Treehouse trees, 5 seconds", note: "Stock footage for every rope-drop video you make this year." },
+        { id: "d4-story", type: "story", text: "Story: “EPCOT day. Out the door at 7 for 8:30 Early Entry.”" }
       ]},
       { time: "8:30a", at: "08:30", title: "Early Entry", items: [
         { id: "d4-se", type: "shot", text: "Walking toward Spaceship Earth in morning light", note: "Low angle, slow walk. One of the best shots of the week." },
@@ -824,16 +826,16 @@ var DAYS = [
         { id: "d4-lum", type: "shot", text: "Luminous: one 15-second clip, then watch", note: "Check the app for tonight's time." },
         { id: "d4-senight", type: "photo", text: "Spaceship Earth lit up at night" }
       ]},
-      wrap("d4", [{ id: "d4-post", type: "post", ref: "s06", note: "Edit it while the laundry runs." }])
+      wrap("d4", [{ id: "d4-post", type: "post", ref: "s06", note: "Edit it while the villa's washer runs." }])
     ]
   },
   {
     id: "d5", date: "2026-09-30", dow: "Wed", md: "9/30", nm: "Wednesday", park: "hs",
     eyebrow: "Day 5 · Wednesday, Sept 30", title: "Hollywood Studios",
-    facts: [["Bus stop", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["First", "Muppets coaster"]],
+    facts: [["Head out", "7:00a"], ["Hours", "9a–9p · EE 8:30"], ["First", "Muppets coaster"]],
     focus: "Go straight to the Muppets coaster for first-look content, then screen-record a mobile order at 10:30.",
     moments: [
-      { time: "7:00a", at: "07:00", title: "Bus stop", items: [
+      { time: "7:00a", at: "07:00", title: "Heading out", items: [
         { id: "d5-story", type: "story", text: "Story: “Straight to the new Muppets coaster.”" }
       ]},
       { time: "8:30a", at: "08:30", title: "Early Entry: Muppets coaster", items: [
@@ -908,11 +910,11 @@ var DAYS = [
   {
     id: "d7", date: "2026-10-02", dow: "Fri", md: "10/2", nm: "Friday", park: "mk",
     eyebrow: "Day 7 · Friday, Oct 2", title: "Magic Kingdom",
-    facts: [["Bus stop", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["TRON", "~12:00p"]],
+    facts: [["Head out", "6:00a"], ["Hours", "8a–6p · EE 7:30"], ["TRON", "~12:00p"]],
     focus: "Get the empty Main Street shot at 7, then the Big Thunder and Single Pass videos.",
     moments: [
-      { time: "6:00a", at: "06:00", title: "Bus stop", items: [
-        { id: "d7-story", type: "story", text: "Story: “Last park day. 6 a.m. bus stop again.”" }
+      { time: "6:00a", at: "06:00", title: "Heading out", items: [
+        { id: "d7-story", type: "story", text: "Story: “Last park day. Out the door at 6 again.”" }
       ]},
       { time: "7:00a", at: "07:00", title: "Tap-in and Main Street", items: [
         { id: "d7-tap", type: "shot", text: "Tapping in as the gates open" },
@@ -956,14 +958,14 @@ var DAYS = [
   {
     id: "d8", date: "2026-10-03", dow: "Sat", md: "10/3", nm: "Saturday", park: "travel",
     eyebrow: "Day 8 · Saturday, Oct 3", title: "Departure Day",
-    facts: [["Checkout", "Bell Services holds bags"], ["Skip", "Magic Kingdom today"]],
-    focus: "Finish the resort review at checkout, and film next year's pitch on the way home.",
+    facts: [["Checkout", "The van is your bag check"], ["Skip", "Magic Kingdom today"]],
+    focus: "Film the Treehouse verdict on the deck, then next year's pitch on the way home.",
     moments: [
       { time: "Morning", at: "08:30", title: "Checkout", items: [
-        { id: "d8-s22", type: "script", ref: "s22", takes: [1, 2, 3, 4] },
-        { id: "d8-bags", type: "shot", text: "Bags on the bell cart", note: "Cover the claim number." },
-        { id: "d8-s03", type: "script", ref: "s03", takes: [4, 5] },
-        { id: "d8-last", type: "shot", text: "Last look: the room, the view, the pool" }
+        { id: "d8-s25", type: "script", ref: "s25", takes: [1, 2, 3, 4, 5, 6] },
+        { id: "d8-last", type: "shot", text: "Last look: the deck, the trees, the Treehouse pool" },
+        { id: "d8-bags", type: "shot", text: "Bags going into the van", note: "For the checkout video. Your car is your bag check." },
+        { id: "d8-s22", type: "script", ref: "s22", takes: [1, 2, 3, 4, 5] }
       ]},
       { time: "10:00a", at: "10:00", title: "One more park (optional)", items: [
         { id: "d8-bye", type: "shot", text: "A goodbye shot at the park entrance" }
@@ -988,6 +990,7 @@ var DAYS = [
     moments: [
       { time: "Oct 4–10", title: "Timely: parties and Food & Wine", items: [
         { id: "a-s24", type: "post", ref: "s24", note: "Sunday 10/4." },
+        { id: "a-s25", type: "post", ref: "s25", note: "The reimagined Treehouses are still news." },
         { id: "a-s17", type: "post", ref: "s17" },
         { id: "a-s13", type: "post", ref: "s13" },
         { id: "a-s07", type: "post", ref: "s07" },
@@ -1007,7 +1010,6 @@ var DAYS = [
       ]},
       { time: "November", title: "Evergreen bank", items: [
         { id: "a-s02", type: "post", ref: "s02" },
-        { id: "a-s03", type: "post", ref: "s03" },
         { id: "a-s15", type: "post", ref: "s15" },
         { id: "a-s16", type: "post", ref: "s16" },
         { id: "a-s22", type: "post", ref: "s22" },
@@ -1054,21 +1056,21 @@ var SCRIPTS = [
     post: "Evergreen. Post it in November."
   },
   {
-    id: "s03", day: "d1", must: true, when: "Sat 9/26 arrival + Sat 10/3 checkout",
-    title: "Resort review from a travel advisor", short: "Resort review",
-    format: "Walk-through + talking head",
-    film: "Takes 1–3 as you walk in on arrival day. Takes 4–5 on checkout morning, once you've lived there a week.",
-    hook: "[Resort name]: a travel advisor's review",
+    id: "s03", day: "d1", must: true, when: "Sat 9/26 · arrival",
+    title: "Inside our reimagined Treehouse Villa", short: "Treehouse Villa tour",
+    format: "Walk-through + voiceover",
+    film: "As you walk in, before the bags land. Check that your villa has the new look (new furniture, animation art). If it does, lead with it.",
+    hook: "Inside a newly reimagined Disney Treehouse Villa",
     takes: [
-      { k: "hook", w: "Sat 9/26 · walking in", say: "This is our home for the week, [Resort name]. Come with me for the first look." },
-      { w: "Sat 9/26 · in the room", say: "Here's the room for the five of us. [The first thing you notice: space, beds, the view.]" },
-      { w: "Sat 9/26 · a favorite detail", say: "The detail I'd point out to a client: [a theming detail, the pool, or how close the bus stop is]." },
-      { w: "Sat 10/3 · checkout", say: "A week later, here's my take. The best part was [best thing]. The one thing to know before you book is [one watch-out]." },
-      { k: "cta", w: "Sat 10/3 · checkout", say: "Deciding between resorts? That's my favorite question to help with. Send me a message." }
+      { k: "hook", w: "Walking up", say: "This is our home for the week, a Treehouse Villa at Disney's Saratoga Springs Resort. Disney just reimagined them this year. Come in with me." },
+      { w: "Living room and kitchen", say: "Every villa sits up in the trees. There's a full kitchen, bar seating, and a dining table for six." },
+      { w: "Bedrooms", say: "Three bedrooms and two bathrooms. Two queen rooms, a bunk room, and space for up to nine." },
+      { w: "A favorite detail", say: "The new design hides little nods to Disney animation all over. [Show the one you spot first.]" },
+      { k: "cta", w: "On the deck", say: "There are only 60 of these. Follow along, and I'll tell you at checkout whether I'd book one again." }
     ],
-    broll: ["Resort sign or entrance", "Door-to-window walk", "The view", "Pool and lobby", "One theming detail up close"],
-    caption: "Our home for the week: [Resort name]. What we loved: [best thing]. What I'd tell a client before booking: [watch-out]. Choosing a resort is one of the biggest decisions in a Disney trip, and it's the question I love helping with most. Send me a message if you're deciding.\n\n#disneyresort #disneyworld #waltdisneyworld #disneytravelagent #disneyplanning",
-    post: "Evergreen. Post it in November."
+    broll: ["Walking up to the villa through the trees", "The first look through the front door", "The kitchen, the dining table and the bunk room", "An animation-art detail up close", "The deck and the view into the trees"],
+    caption: "Our home for the week: a newly reimagined Treehouse Villa at Disney's Saratoga Springs Resort. Three bedrooms, two bathrooms, a full kitchen and space for up to nine, all up in the trees. The 2026 redesign kept the layout and added little nods to Disney animation throughout. There are only 60 Treehouses, and I'll share my full verdict at checkout.\n\n#treehousevillas #saratogasprings #disneyresort #disneyvacationclub #disneytravelagent",
+    post: "Post Sunday morning. The reimagined villas are brand new, so this one is timely."
   },
   {
     id: "s04", day: "d2", must: false, when: "Sun 9/27 · morning at the resort",
@@ -1141,17 +1143,17 @@ var SCRIPTS = [
     id: "s08", day: "d3", must: true, when: "Mon 9/28 · 6:00a to 10:30a",
     title: "My #1 rope-drop rule", short: "Rope-drop rule: the bus stop",
     format: "Talking head across the morning",
-    film: "Takes 1–2 at the bus stop (a quiet voice is fine). Take 3 after Flight of Passage. Takes 4–5 around 10:30.",
-    hook: "Why we're at the bus stop at 6 a.m.",
+    film: "Takes 1–2 as you head out at 6, at the shuttle stop or in the van (a quiet voice is fine). Take 3 after Flight of Passage. Takes 4–5 around 10:30.",
+    hook: "Why we're heading out at 6 a.m.",
     takes: [
-      { k: "hook", w: "6:00a · bus stop", say: "It's 6 a.m. and we're at the bus stop. Animal Kingdom doesn't open until 8. Here's why." },
-      { w: "6:00a · bus stop", say: "My rule for every client: be at your resort bus stop two hours before the park's official opening. Not Early Entry. Official opening." },
+      { k: "hook", w: "6:00a · heading out", say: "It's 6 a.m. and we're [at the bus stop / already in the car]. Animal Kingdom doesn't open until 8. Here's why." },
+      { w: "6:00a · heading out", say: "My rule for every client: be at your resort bus stop two hours before the park's official opening. Not Early Entry. Official opening. Driving? Same rule." },
       { w: "Pandora · after riding", say: "It's [time], and we've already ridden Flight of Passage. The wait when we got in line was [wait] minutes." },
       { w: "Around 10:30a", say: "Here's the same ride now. [Wait] minutes. That's what the early bus buys you." },
       { k: "cta", w: "Around 10:30a", say: "Follow me for the rest of my rope-drop rules." }
     ],
-    broll: ["The empty bus stop in the dark", "The bus pulling up", "Pandora at first light", "Both Flight of Passage wait screenshots"],
-    caption: "My number one rule for clients: be at your resort bus stop two hours before the park's official opening time. Not Early Entry. Official opening. At Animal Kingdom that meant a 6 a.m. bus stop, and Flight of Passage at [wait] minutes instead of [later wait]. Follow for more of my rope-drop rules.\n\n#ropedrop #animalkingdom #disneytips #disneytravelagent #pandora",
+    broll: ["Leaving in the dark: the shuttle stop or the van", "The road in before sunrise", "Pandora at first light", "Both Flight of Passage wait screenshots"],
+    caption: "My number one rule for clients: be at your resort bus stop two hours before the park's official opening time. Not Early Entry. Official opening. Driving? Same rule. At Animal Kingdom that meant heading out at 6 a.m., and Flight of Passage at [wait] minutes instead of [later wait]. Follow for more of my rope-drop rules.\n\n#ropedrop #animalkingdom #disneytips #disneytravelagent #pandora",
     post: "Post the week of Oct 11. Evergreen after that."
   },
   {
@@ -1376,19 +1378,38 @@ var SCRIPTS = [
     post: "Post it in late October."
   },
   {
-    id: "s22", day: "d8", must: false, when: "Sat 10/3 · checkout",
-    title: "Checkout day: the Bell Services trick", short: "Checkout-day trick",
+    id: "s25", day: "d8", must: true, when: "Sat 10/3 · checkout morning",
+    title: "Treehouse Villas: who should book one", short: "Treehouse verdict",
     format: "Talking head",
-    film: "At Bell Services or beside the luggage cart.",
+    film: "On the deck before you load the van, once you've lived there a week.",
+    hook: "Should you book a Disney Treehouse Villa?",
+    takes: [
+      { k: "hook", say: "We just spent a week in a Treehouse Villa at Disney's Saratoga Springs Resort. Here's who I'd book one for." },
+      { say: "Bigger families and groups. It sleeps up to nine, with a full kitchen and a washer and dryer, which changes how you pack for a long trip." },
+      { say: "The thing to know: park buses don't stop at the Treehouses. A shuttle takes you to the main resort to catch your bus, so a car makes life much easier." },
+      { say: "Our favorite part was [best thing]. [One thing you'd change or warn about.]" },
+      { say: "And you don't have to own Disney Vacation Club to stay here. It books like any Disney hotel room, when one's available." },
+      { k: "cta", say: "There are only 60 of them. If you want one for your family, send me a message and I'll look for you." }
+    ],
+    broll: ["The deck in morning light", "The kitchen and the washer and dryer", "The Treehouse shuttle stop, or the van", "The Treehouse pool", "Loading up on checkout morning"],
+    caption: "Should you book a Treehouse Villa at Disney's Saratoga Springs Resort? After a week, here's my take. Best for bigger families and groups: it sleeps up to nine, with a full kitchen and a washer and dryer. Know before you go: park buses don't stop at the Treehouses, so plan on a car. Our favorite part: [best thing]. You don't need to own Disney Vacation Club to stay; it books like any Disney hotel room when one's available. There are only 60, so send me a message if you want one for your family.\n\n#treehousevillas #saratogasprings #disneyresort #disneyvacationclub #disneytravelagent",
+    post: "Post the week of Oct 4, while the reimagined villas are news."
+  },
+  {
+    id: "s22", day: "d8", must: false, when: "Sat 10/3 · checkout",
+    title: "Checkout day doesn't end the trip", short: "Checkout-day tips",
+    format: "Talking head",
+    film: "Anywhere at the resort once you've checked out. Film the bags going into the van for take 3.",
     hook: "Checkout day doesn't have to end your Disney trip",
     takes: [
       { k: "hook", say: "It's checkout day, but the trip isn't over yet." },
-      { say: "Bell Services will hold your bags after checkout, so you can do one more park morning or one more swim." },
-      { say: "Pack the night before and drop the bags first thing. In October, Magic Kingdom gets busy on days without a party, so pick a different park." },
+      { say: "Flying home later? Bell Services will hold your bags after checkout, so you can do one more park morning or one more swim." },
+      { say: "Driving, like us? Your car is your bag check. Load up and go." },
+      { say: "And in October, Magic Kingdom gets busy on days without a party, so pick a different park for that last morning." },
       { k: "cta", say: "Save this for your last day." }
     ],
-    broll: ["Bags on the bell cart", "The claim ticket with the number covered", "One last pool clip"],
-    caption: "Checkout-day tip: Bell Services will hold your bags after checkout, so you can squeeze in one more park morning or one more swim. Pack the night before, and in October skip Magic Kingdom on days without a party, when it's busiest.\n\n#disneytips #disneyworld #disneyresort #disneyplanning #disneytravelagent",
+    broll: ["Bags going into the van", "One last pool clip", "A last-morning park entrance, if you go"],
+    caption: "Checkout day doesn't have to end the trip. Flying home later? Bell Services will hold your bags after checkout, so you can squeeze in one more park morning or one more swim. Driving? Your car is your bag check. And in October, skip Magic Kingdom on days without a party, when it's busiest.\n\n#disneytips #disneyworld #disneyresort #disneyplanning #disneytravelagent",
     post: "Evergreen. Post it in November."
   },
   {
@@ -1450,6 +1471,13 @@ var KIT = {
     ["Coasters: phone away.", "Film the queue, the building and the reaction instead."],
     ["Keep walkways clear.", "Set the tripod up out of walkways and parade routes."]
   ],
+  treehouse: [
+    ["Park buses don't stop here.", "A shuttle runs from the Treehouse stops to The Springs and The Grandstand, where you catch your park bus. The van is usually faster."],
+    ["Disney Springs by boat.", "Boats leave from the main Saratoga Springs dock."],
+    ["Your own quiet pool.", "The Treehouses have their own pool and hot tub. Calm b-roll, and a good rest-time spot."],
+    ["Laundry in the villa.", "A full-size washer and dryer, so Tuesday's wash happens right there while the kids swim."],
+    ["Look for the new details.", "The 2026 redesign added nods to Tangled, Mulan, The Rescuers, The Princess and the Frog and more. Film them up close."]
+  ],
   privacy: [
     ["Crop screenshots.", "Names, confirmation numbers, and any ticket or party barcode."],
     ["Cover claim tickets.", "Bell Services tickets and luggage tags."],
@@ -1464,6 +1492,7 @@ var KIT = {
     "Want this week next year? Send me a message. I'll plan it for you."
   ],
   tags: [
+    ["Treehouse", "#treehousevillas #saratogasprings #disneyvacationclub #dvc #disneyresort"],
     ["Party", "#mnsshp #notsoscary #disneyhalloween #magickingdom #halloweenatdisney"],
     ["EPCOT", "#epcot #epcotfoodandwine #foodandwinefestival #disneyfood #worldshowcase"],
     ["Hollywood Studios", "#hollywoodstudios #galaxysedge #toystoryland #muppets #disneyparks"],
@@ -1932,6 +1961,7 @@ function renderKit() {
     '<h1 class="page-title">Kit</h1>' +
     '<p class="page-sub">How to use this page, filming tips, park rules for your gear, and text ready to paste.</p>' +
     '<section class="kit-sec"><h2 class="kit-h">How it works</h2>' + tips(KIT.how) + '<p class="kit-note" id="kit-sync" style="margin-top:10px">' + esc(syncSentence()) + "</p></section>" +
+    '<section class="kit-sec"><h2 class="kit-h">Your Treehouse</h2>' + tips(KIT.treehouse) + "</section>" +
     '<section class="kit-sec"><h2 class="kit-h">Display</h2><p class="kit-note">Light reads best in bright sun. Dark is easier on your eyes on party nights.</p>' +
       '<div class="steps three" role="radiogroup" aria-label="Display">' + [["auto", "Match phone"], ["light", "Light"], ["dark", "Dark"]].map(function (o) {
         return '<button type="button" role="radio" class="step" data-act="theme-set" data-v="' + o[0] + '" aria-checked="' + ((UI.theme || "auto") === o[0]) + '">' + o[1] + "</button>";

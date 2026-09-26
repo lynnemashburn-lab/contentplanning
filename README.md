@@ -4,12 +4,12 @@ Content plans for Happily Ever Planned (Lynne Mashburn, Travel Advisor, a Travel
 
 ## Disney World, Sept 26 – Oct 3, 2026
 
-`disney-fall-2026/index.html` is **Happily Ever Filmed**: a phone-first content call sheet for the Mashburn family trip.
+`disney-fall-2026/index.html` is **Happily Ever Filmed**: a phone-first content call sheet for the Mashburn family trip, staying at the Treehouse Villas at Disney's Saratoga Springs Resort, with two Mickey's Not-So-Scary Halloween Party nights (Sun 9/27 and Thu 10/1).
 
 | Tab | What's in it |
 |---|---|
 | **Days** | One call sheet per day, Friday prep night through the posting plan after the trip. Each day is a timeline of shots, photos, stories, screen recordings and script takes, in the order they happen. |
-| **Scripts** | 24 short-video scripts (13 marked must-film), split into takes. Each has on-screen text, a caption, a b-roll list and when to post. **Take mode** shows one take at a time in big type and keeps the screen awake. |
+| **Scripts** | 25 short-video scripts (14 marked must-film), split into takes. Each has on-screen text, a caption, a b-roll list and when to post. **Take mode** shows one take at a time in big type and keeps the screen awake. |
 | **Kit** | Filming tips, Disney's gear rules, the party playbook ready to paste into DMs, calls to action, hashtag sets and the light/dark setting. |
 
 **How checkmarks save:** every tap saves to the phone first, so it works with no signal in the parks. When the page is published as a Claude artifact, it also backs up to the artifact's own database, so the same checkmarks show up on the laptop.
