@@ -2,6 +2,8 @@
 
 Content plans for Happily Ever Planned (Lynne Mashburn, Travel Advisor, a Travelmation agency).
 
+**Starting a new plan?** Read [`trip-content-playbook.md`](trip-content-playbook.md). It has the method, the voice rules, the script format, and a brief to fill in.
+
 ## Disney World, Sept 26 – Oct 3, 2026
 
 `disney-fall-2026/index.html` is **Happily Ever Filmed**: a phone-first content call sheet for the Mashburn family trip, staying at the Treehouse Villas at Disney's Saratoga Springs Resort, with two Mickey's Not-So-Scary Halloween Party nights (Sun 9/27 and Thu 10/1).
