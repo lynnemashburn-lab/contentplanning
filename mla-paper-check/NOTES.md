@@ -30,6 +30,8 @@ The mock editor's menu lists (`MENUS`) are abbreviated to the items that matter.
 
 - **No GSAP.** The page is a stepped tour, not a scroll narrative, so every effect is plain CSS transitions and keyframes. Nothing loads from a CDN except the two Google Fonts. It works with the CDN blocked.
 - **Phone leader line.** On one-column layouts the leader line from the bubble to the target draws only when the target is within about 300px of the bubble. Further than that it crossed the whole paper and looked like a mistake. The spotlight still marks the target.
+- **Windows / Mac toggle.** The walkthrough header has a two-button switch. Step text uses a `{{mod}}` token that renders as Ctrl or Cmd, and the key chip in the mock editor follows it. It defaults to the student's own computer and remembers the choice in `localStorage` when allowed.
+- **Double spacing stop** spotlights the whole text area, with 2.0 brackets on the heading and body and a "whole page" bracket down the side, so nobody double-spaces only the paragraphs.
 - **Zoom in.** A toggle under the paper widens it to 760px inside a scrollable frame and scrolls to the current target. Useful on phones where to-scale 12-point text is about 7px.
 
 ## Adding stops later (Works Cited, annotated bibliography)

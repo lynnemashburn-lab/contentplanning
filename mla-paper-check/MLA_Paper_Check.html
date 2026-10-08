@@ -266,6 +266,11 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 @media (max-width: 760px) { .walk { grid-template-columns: 1fr; } }
 .walk .head { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
 .walk .head h2 { font-size: 22px; }
+.walk .headright { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.walk .os { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 10px; overflow: hidden; }
+.walk .os button { border: 0; background: transparent; color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 13px; padding: 6px 12px; }
+.walk .os button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.walk .os button:focus-visible { outline-offset: -3px; }
 .walk .head .eyebrow { font-family: var(--display); font-weight: 600; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
 .walk .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: s; }
 .walk .steps li {
@@ -494,7 +499,13 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
           <div class="eyebrow">In Google Docs</div>
           <h2 id="w-title" tabindex="-1"></h2>
         </div>
-        <button class="btn small" id="btn-recheck" type="button">Done, recheck</button>
+        <div class="headright">
+          <div class="os" role="group" aria-label="Which computer are you on?">
+            <button type="button" id="os-win" aria-pressed="true">Windows</button>
+            <button type="button" id="os-mac" aria-pressed="false">Mac</button>
+          </div>
+          <button class="btn small" id="btn-recheck" type="button">Done, recheck</button>
+        </div>
       </div>
 
       <div class="ed" id="ed" aria-hidden="true">
@@ -619,7 +630,7 @@ const STOPS = [
     target: "#t-area", mark: "font",
     docsTitle: "Set the font and size",
     steps: [
-      { text: "Press <kbd>Ctrl</kbd>+<kbd>A</kbd> (<kbd>Cmd</kbd>+<kbd>A</kbd> on Mac) to select everything.", scene: [{ act: "key", keys: "Ctrl + A", mac: "Cmd + A on Mac", selectAll: true }] },
+      { text: "Press <kbd>{{mod}}</kbd>+<kbd>A</kbd> to select everything.", scene: [{ act: "key", keys: "Ctrl + A", selectAll: true }] },
       { text: "Click the font box. Choose Times New Roman.", scene: [{ act: "tool", id: "font", options: ["Arial", "Calibri", "Georgia", "Times New Roman", "Verdana"], pick: "Times New Roman", apply: "tnr" }] },
       { text: "Click the size box. Choose 12.", scene: [{ act: "tool", id: "size", options: ["10", "11", "12", "14", "18"], pick: "12" }] }
     ],
@@ -640,15 +651,15 @@ const STOPS = [
   },
   {
     id: "spacing", label: "Double spacing", short: "Spacing",
-    rule: "<b>Double spaced</b>, top to bottom. No extra space between paragraphs.",
-    target: "#t-para1", mark: "spacing",
+    rule: "<b>The whole page is double spaced.</b> Heading, title, and every paragraph. No extra space between paragraphs.",
+    target: "#t-area", mark: "spacing",
     docsTitle: "Double-space the whole paper",
     steps: [
-      { text: "Press <kbd>Ctrl</kbd>+<kbd>A</kbd> (<kbd>Cmd</kbd>+<kbd>A</kbd> on Mac) to select everything.", scene: [{ act: "key", keys: "Ctrl + A", mac: "Cmd + A on Mac", selectAll: true }] },
+      { text: "Press <kbd>{{mod}}</kbd>+<kbd>A</kbd> to select everything.", scene: [{ act: "key", keys: "Ctrl + A", selectAll: true }] },
       { text: "Format, then Line &amp; paragraph spacing, then Double.", scene: [{ act: "menu", name: "Format", pick: "Line & paragraph spacing", sub: "Double", apply: "double" }] },
       { text: "Same menu, then Custom spacing. Set Before and After to 0. Apply.", scene: [{ act: "sheet", cls: "double" }, { act: "menu", name: "Format", pick: "Line & paragraph spacing", sub: "Custom spacing" }, { act: "dialog", id: "spacing" }, { act: "dfields", values: { Before: "0", After: "0" } }, { act: "dok" }] }
     ],
-    watch: "Docs starts at 1.15 with extra space after each paragraph. Both have to change."
+    watch: "Select all first, so the heading and title change too. Docs starts at 1.15 with extra space after each paragraph. Both have to change."
   },
   {
     id: "header", label: "Running header", short: "Header",
@@ -691,8 +702,8 @@ const STOPS = [
     docsTitle: "Center the title",
     steps: [
       { text: "Click on the title line.", scene: [{ act: "titleDoc" }, { act: "click", where: "title" }] },
-      { text: "Center it: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> on Mac).", scene: [{ act: "titleDoc" }, { act: "click", where: "title", quiet: true }, { act: "key", keys: "Ctrl + Shift + E", mac: "Cmd + Shift + E on Mac" }, { act: "tool", id: "center", apply: "center" }] },
-      { text: "Press <kbd>Enter</kbd>, then left-align the next line: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>.", scene: [{ act: "titleDoc", centered: true }, { act: "click", where: "afterTitle", quiet: true }, { act: "key", keys: "Enter, then Ctrl + Shift + L", mac: "Cmd + Shift + L on Mac" }, { act: "tool", id: "left" }] }
+      { text: "Center it: <kbd>{{mod}}</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>.", scene: [{ act: "titleDoc" }, { act: "click", where: "title", quiet: true }, { act: "key", keys: "Ctrl + Shift + E" }, { act: "tool", id: "center", apply: "center" }] },
+      { text: "Press <kbd>Enter</kbd>, then left-align the next line: <kbd>{{mod}}</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>.", scene: [{ act: "titleDoc", centered: true }, { act: "click", where: "afterTitle", quiet: true }, { act: "key", keys: "Enter, then Ctrl + Shift + L" }, { act: "tool", id: "left" }] }
     ],
     watch: "Don't make the title bold or bigger. Same font, same size as everything else."
   },
@@ -730,13 +741,22 @@ const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const wait = ms => new Promise(r => setTimeout(r, reduced ? 0 : ms));
 const STORE_KEY = "mla-paper-check-v1";
 
-const state = { i: 0, done: new Set(), walkStep: 0, sceneToken: 0, bonusFound: new Set(), bonusN: 0 };
+const state = { i: 0, done: new Set(), walkStep: 0, sceneToken: 0, bonusFound: new Set(), bonusN: 0, os: /Mac|iPhone|iPad/.test(navigator.platform + navigator.userAgent) ? "mac" : "win" };
+const OS_KEY = "mla-paper-check-os";
+function osText(t) { return t.replace(/\{\{mod\}\}/g, state.os === "mac" ? "Cmd" : "Ctrl"); }
+function setOs(os, replay) {
+  state.os = os;
+  $("#os-win").setAttribute("aria-pressed", String(os === "win")); $("#os-mac").setAttribute("aria-pressed", String(os === "mac"));
+  try { localStorage.setItem(OS_KEY, os); } catch (e) { /* ignore */ }
+  if (replay && !$("#walk").hidden) { renderSteps(); playStep(state.walkStep); }
+}
 
 function load() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     if (raw) { const d = JSON.parse(raw); (d.done || []).forEach(x => state.done.add(x)); }
   } catch (e) { /* storage blocked: fine */ }
+  try { const os = localStorage.getItem(OS_KEY); if (os === "mac" || os === "win") state.os = os; } catch (e) { /* ignore */ }
 }
 function save() {
   try { localStorage.setItem(STORE_KEY, JSON.stringify({ done: Array.from(state.done) })); } catch (e) { /* ignore */ }
@@ -842,13 +862,20 @@ function drawMarks(stop) {
     ruler(svg, W - IN, H * .5, W, H * .5, "1 in", fs);
   }
   if (stop.mark === "spacing") {
-    const r = relRect($("#t-para1"), frame);
-    const x = r.x - IN * .22;
-    for (let k = 0; k < 3; k++) {
-      const y1 = r.y + lineH * k + lineH * .5, y2 = y1 + lineH;
-      penPath(svg, `M${x + 6} ${y1} h-6 V${y2} h6`);
-    }
-    label(svg, x - fs * .5, r.y + lineH * 2, "2.0", fs, "end");
+    const brackets = (el, n, delay) => {
+      const r = relRect(el, frame), x = r.x - IN * .22;
+      for (let k = 0; k < n; k++) {
+        const y1 = r.y + lineH * k + lineH * .5, y2 = y1 + lineH;
+        penPath(svg, `M${x + 6} ${y1} h-6 V${y2} h6`).style.transitionDelay = delay + "s";
+      }
+      label(svg, x - fs * .5, r.y + lineH * (n / 2 + .5) + fs * .35, "2.0", fs, "end").style.transitionDelay = (delay + .3) + "s";
+    };
+    brackets($("#t-heading"), 3, 0);
+    brackets($("#t-para1"), 3, .25);
+    brackets($("#t-body p:nth-child(3)"), 2, .5);
+    const a = relRect($("#t-area"), frame), x = a.x + a.w + IN * .3;
+    penPath(svg, `M${x - 6} ${a.y} h6 V${a.y + a.h} h-6`).style.transitionDelay = ".7s";
+    label(svg, x + fs * 1.15, a.y + fs * 4, "whole page", fs, "middle", 90).style.transitionDelay = "1.2s";
   }
   if (stop.mark === "heading") {
     const lines = $$("#t-heading p");
@@ -1002,13 +1029,16 @@ function openWalk() {
   $("#w-title").textContent = stop.docsTitle;
   $("#w-watch").innerHTML = `<b>Watch out</b>${stop.watch}`;
   const v = $("#w-video"); v.hidden = !stop.video; v.innerHTML = stop.video ? `<iframe src="${stop.video}" allowfullscreen title="Video: ${stop.docsTitle}"></iframe>` : "";
-  const ol = $("#steps"); ol.innerHTML = "";
-  stop.steps.forEach((s, k) => { const li = document.createElement("li"); li.innerHTML = `<span>${s.text}</span>`; li.addEventListener("click", () => playStep(k)); ol.appendChild(li); });
+  renderSteps();
   state.walkStep = 0;
   buildEditor();
   playStep(0);
   w.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
   $("#w-title").focus({ preventScroll: true });
+}
+function renderSteps() {
+  const stop = STOPS[state.i], ol = $("#steps"); ol.innerHTML = "";
+  stop.steps.forEach((s, k) => { const li = document.createElement("li"); li.innerHTML = `<span>${osText(s.text)}</span>`; li.addEventListener("click", () => playStep(k)); ol.appendChild(li); });
 }
 function closeWalk() { state.sceneToken++; $("#walk").hidden = true; }
 function playStep(k) {
@@ -1103,8 +1133,9 @@ function dialog(id, filled) {
   }
   $("#ed").appendChild(d); return d;
 }
-function showKbd(keys, mac) {
-  const k = $("#kbd"); k.innerHTML = keys + (mac ? `<small>${mac}</small>` : ""); k.classList.add("on");
+function showKbd(keys) {
+  const k = $("#kbd"); const shown = state.os === "mac" ? keys.replace(/Ctrl/g, "Cmd") : keys;
+  k.innerHTML = shown + `<small>${state.os === "mac" ? "Mac" : "Windows"}</small>`; k.classList.add("on");
 }
 function caretAt(where) {
   $$("#ed .caret").forEach(c => c.remove());
@@ -1135,7 +1166,7 @@ async function runScene(scene) {
     if (!alive()) return;
     if (a.act === "key") {
       await wait(300); if (!alive()) return;
-      showKbd(a.keys, a.mac);
+      showKbd(a.keys);
       if (a.selectAll) { $("#sheet").classList.add("sel"); }
       if (a.apply === "indent") { $$("#ed-doc p").forEach(p => p.classList.add("ind")); }
       await wait(900);
@@ -1353,6 +1384,9 @@ function init() {
   $("#w-back").addEventListener("click", () => playStep(state.walkStep - 1));
   $("#w-next").addEventListener("click", () => playStep(state.walkStep + 1));
   $("#w-replay").addEventListener("click", () => playStep(state.walkStep));
+  $("#os-win").addEventListener("click", () => setOs("win", true));
+  $("#os-mac").addEventListener("click", () => setOs("mac", true));
+  setOs(state.os, false);
   $("#btn-bonus").addEventListener("click", startBonus);
   $("#btn-restart").addEventListener("click", () => startTour(true));
   $("#btn-restart2").addEventListener("click", () => startTour(true));
