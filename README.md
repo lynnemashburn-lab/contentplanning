@@ -31,3 +31,10 @@ The plan data sits at the top of the `<script>` block in `index.html`, in three 
 Item and script ids are the keys the saved checkmarks use, so change an id only if you're fine losing that item's checkmark.
 
 Design patterns were adapted from [21st.dev](https://21st.dev) components: the bottom nav bar, the tubelight tab indicator, the bottom-sheet drawer, the card stack (Take mode) and the animated checkbox to-do list. They were rebuilt in plain HTML so the page needs no build step.
+
+## MLA Paper Check (teaching page)
+
+`mla-paper-check/MLA_Paper_Check.html` is a single-file interactive page for high school seniors: a to-scale sample MLA first page, eight spotlighted stops (font, margins, spacing, running header, heading, date, title, indent), a mock Google Docs walkthrough for each, and a bonus "spot the mistakes" paper. Upload the file to Canvas Files and embed `/files/<id>/preview` in an iframe.
+
+- `MLA_Check_Narration_Script.txt`: optional narration, one block per stop.
+- `NOTES.md`: decisions, the Docs menu paths to confirm live, how to add stops later.

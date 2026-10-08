@@ -1,0 +1,98 @@
+MLA PAPER CHECK
+Narration script
+One block per stop, plus an intro and a finish. Plain spoken language, ready for ElevenLabs.
+Suggested voice settings: warm, unhurried, a half-step slower than conversation. Pause about one second at each blank line.
+
+To use a recording: paste its URL into the NARRATION object at the top of the script in MLA_Paper_Check.html, next to the matching key (intro, font, margins, spacing, header, heading, date, title, indent, finish). An audio player appears in the bubble for that stop. Leave a key empty and nothing shows.
+
+---------------------------------------------------------------
+INTRO (key: intro)
+---------------------------------------------------------------
+Before you turn in your paper, let's check the formatting.
+
+Open your own essay in another tab, so you can look at both.
+
+We'll go through eight parts, one at a time. For each one, look at the sample, then look at yours. If it matches, say so and move on. If it doesn't, I'll show you how to fix it in Google Docs.
+
+Ready? Let's start.
+
+---------------------------------------------------------------
+STOP 1. FONT AND SIZE (key: font)
+---------------------------------------------------------------
+First, the font.
+
+Everything on the page is Times New Roman, size twelve. The heading, the title, the header in the corner, and all the body text.
+
+Look at yours. Click anywhere in your paper and check the font box at the top. Then click into the header and check it again. The header is separate, and it's the one people forget.
+
+---------------------------------------------------------------
+STOP 2. MARGINS (key: margins)
+---------------------------------------------------------------
+Next, margins.
+
+One inch on all four sides. Top, bottom, left, and right.
+
+In Google Docs, that's under File, then Page setup. Make sure your document is set to Pages, not Pageless. Pageless documents don't have margins, headers, or page numbers at all.
+
+---------------------------------------------------------------
+STOP 3. DOUBLE SPACING (key: spacing)
+---------------------------------------------------------------
+Now, spacing.
+
+The whole paper is double spaced, from the first line of the heading to the last line of the essay.
+
+And here's the part that trips people up. There's no extra space between paragraphs. Google Docs adds a little extra space after each paragraph by default. Set that to zero.
+
+---------------------------------------------------------------
+STOP 4. RUNNING HEADER (key: header)
+---------------------------------------------------------------
+Look at the top right corner.
+
+That's the running header. Your last name, a space, and the page number. It shows up on every page, including the first one.
+
+Check yours. If you see a number but no name, click right before the number and type your last name.
+
+---------------------------------------------------------------
+STOP 5. HEADING (key: heading)
+---------------------------------------------------------------
+Now the heading, at the top left.
+
+Four lines, in this order. Your name. Your teacher's name. The course. And the date.
+
+They sit on the page, not in the header area. And they stay lined up on the left, like everything else.
+
+---------------------------------------------------------------
+STOP 6. DATE (key: date)
+---------------------------------------------------------------
+One more look at that last heading line. The date.
+
+MLA writes it day, month, year. Eight, October, twenty twenty-six. Spell out the month. And no comma anywhere.
+
+Type it yourself. If you type the at sign and the word today, Docs drops in a date chip in the wrong format.
+
+---------------------------------------------------------------
+STOP 7. TITLE (key: title)
+---------------------------------------------------------------
+The title.
+
+It's centered, and it's plain. Same font, same size as the rest of the paper. No bold, no underline, no quotation marks.
+
+Capitalize the important words, the way you'd see a book title written.
+
+---------------------------------------------------------------
+STOP 8. PARAGRAPH INDENT (key: indent)
+---------------------------------------------------------------
+Last one. Paragraph indents.
+
+The first line of every paragraph moves in half an inch. Click at the start of the paragraph and press Tab once.
+
+Don't use the spacebar. Space indents never line up the same way twice.
+
+---------------------------------------------------------------
+FINISH (key: finish)
+---------------------------------------------------------------
+That's all eight.
+
+If every stop matched, your paper is formatted the way it should be. Ready to submit.
+
+If you want one more challenge, try the bonus round. There's a paper with six mistakes hidden in it. See how many you can find.
