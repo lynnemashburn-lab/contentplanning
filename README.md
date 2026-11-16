@@ -31,3 +31,16 @@ The plan data sits at the top of the `<script>` block in `index.html`, in three 
 Item and script ids are the keys the saved checkmarks use, so change an id only if you're fine losing that item's checkmark.
 
 Design patterns were adapted from [21st.dev](https://21st.dev) components: the bottom nav bar, the tubelight tab indicator, the bottom-sheet drawer, the card stack (Take mode) and the animated checkbox to-do list. They were rebuilt in plain HTML so the page needs no build step.
+
+## Long Distance Mouse Vault
+
+`long-distance-mouse-vault/index.html` is the content vault for The Long Distance Mouse: every post in one place, moving through **Drafts, Scheduled, Live and Revisions**, plus a **Stats** view.
+
+| Part | How it works |
+|---|---|
+| **Posts** | Each post has a title, topic, date, platforms (YouTube, Instagram, Facebook, TikTok), caption or script, and links to the video file, Canva design and each platform's post. |
+| **Revisions** | Type a note on any post and send it to Revisions. The note stays on the post until it is marked fixed. |
+| **Saving** | The page is published as a Claude artifact and keeps posts in the artifact's own database (collection `posts`), so the same posts show on phone and laptop. Nothing is stored in this file. |
+| **Stats** | Per-post numbers live on each post (`stats.<platform>`), and `stats/summary` holds followers and daily views. Both are filled from Metricool by Claude; the page only reads them. |
+
+The look follows Tristen O'Brien's AI Made Easy channel: deep navy, rainbow accents, heavy condensed type, and white blocks with thick outlines and hard offset shadows.
