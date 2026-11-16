@@ -68,7 +68,9 @@ textarea { font: inherit; }
 .scene .gloss { position: absolute; left: 10px; top: 10px; width: 34px; height: 34px; --c: #fff; color: var(--ink); }
 .scene .gloss::after { content: ""; width: 12px; height: 13px; margin-left: 3px; background: var(--ink); clip-path: polygon(0 0, 100% 50%, 0 100%); }
 .scene b { position: absolute; left: 10px; right: 8px; bottom: 9px; font-family: var(--display); font-stretch: 68%; font-weight: 900; font-size: 25px; line-height: .92; text-transform: uppercase; color: #fff; text-shadow: 2px 2px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink); }
-.scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+.card .scene.has-img { aspect-ratio: 4 / 5; }
+.panel .scene.has-img { aspect-ratio: 4 / 4.2; }
 .scene.has-img::before, .scene.has-img .gloss, .scene.has-img b { display: none; }
 .form input[type="file"] { display: block; width: 100%; font-size: 13px; color: var(--ink); }
 [data-p="resort"] { --c: #3D8BFF; } [data-p="pins"] { --c: #A35BFF; } [data-p="tips"] { --c: #2FCB71; } [data-p="food"] { --c: #FF9A2E; } [data-p="events"] { --c: #FF3D97; }
